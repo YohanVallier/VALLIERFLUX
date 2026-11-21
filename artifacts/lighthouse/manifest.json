@@ -1,0 +1,38 @@
+[
+  {
+    "url": "http://127.0.0.1:4173/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/home/yohan-vallier/Documents/GitHub/VALLIERFLUX/artifacts/lighthouse/127_0_0_1--2026_11_21_12_23_10.report.html",
+    "jsonPath": "/home/yohan-vallier/Documents/GitHub/VALLIERFLUX/artifacts/lighthouse/127_0_0_1--2026_11_21_12_23_10.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.54
+    }
+  },
+  {
+    "url": "http://127.0.0.1:4173/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/home/yohan-vallier/Documents/GitHub/VALLIERFLUX/artifacts/lighthouse/127_0_0_1--2026_11_21_12_23_37.report.html",
+    "jsonPath": "/home/yohan-vallier/Documents/GitHub/VALLIERFLUX/artifacts/lighthouse/127_0_0_1--2026_11_21_12_23_37.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.54
+    }
+  },
+  {
+    "url": "http://127.0.0.1:4173/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/yohan-vallier/Documents/GitHub/VALLIERFLUX/artifacts/lighthouse/127_0_0_1--2026_11_21_12_23_24.report.html",
+    "jsonPath": "/home/yohan-vallier/Documents/GitHub/VALLIERFLUX/artifacts/lighthouse/127_0_0_1--2026_11_21_12_23_24.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.54
+    }
+  }
+]

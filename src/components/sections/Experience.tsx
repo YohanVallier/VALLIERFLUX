@@ -10,20 +10,35 @@ export function Experience() {
   return (
     <section id="experiencia" className={styles.section} aria-labelledby="experiencia-title">
       <Container>
-        <SectionHeading id="experiencia-title" eyebrow="05 / Trajetória" title={experienceContent.title} description={experienceContent.description} />
+        <SectionHeading
+          id="experiencia-title"
+          eyebrow="05 / Trajetória"
+          title={experienceContent.title}
+          description={experienceContent.description}
+        />
         <div ref={ref}>
           <ul className={styles.timeline}>
             {timeline.map((entry) => {
               const Icon = entry.kind === 'work' ? BriefcaseBusiness : GraduationCap;
               return (
                 <li key={entry.id} className={styles.entry}>
-                  <span className={styles.marker}><Icon size={21} aria-hidden="true" /></span>
+                  <span className={styles.marker}>
+                    <Icon size={21} aria-hidden="true" />
+                  </span>
                   <article className={styles.card} aria-labelledby={`experience-${entry.id}`}>
-                    <p className={styles.kind}>{entry.kind === 'work' ? 'Experiência profissional' : 'Formação'}</p>
+                    <p className={styles.kind}>
+                      {entry.kind === 'work' ? 'Experiência profissional' : 'Formação'}
+                    </p>
                     <h3 id={`experience-${entry.id}`}>{entry.title}</h3>
-                    {entry.organization && <p className={styles.organization}>{entry.organization}</p>}
+                    {entry.organization && (
+                      <p className={styles.organization}>{entry.organization}</p>
+                    )}
                     {entry.dateLabel && <p className={styles.date}>{entry.dateLabel}</p>}
-                    <p className={styles.description}>{entry.description}</p>
+                    {entry.description.split('\n\n').map((paragraph) => (
+                      <p key={paragraph} className={styles.description}>
+                        {paragraph}
+                      </p>
+                    ))}
                   </article>
                 </li>
               );
