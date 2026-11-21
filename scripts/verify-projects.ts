@@ -147,7 +147,9 @@ function isManifest(path: string): boolean {
     return false;
   }
   const name = path.split('/').at(-1) ?? '';
-  return /^(package\.json|pyproject\.toml|requirements[^/]*\.txt|Pipfile|environment\.ya?ml|composer\.json|pom\.xml|build\.gradle(?:\.kts)?|Cargo\.toml|go\.mod)$/i.test(name);
+  return /^(package\.json|pyproject\.toml|requirements[^/]*\.txt|Pipfile|environment\.ya?ml|composer\.json|pom\.xml|build\.gradle(?:\.kts)?|Cargo\.toml|go\.mod)$/i.test(
+    name,
+  );
 }
 
 function encodePath(path: string): string {
@@ -188,7 +190,9 @@ export async function collectRepository(
     repository.hostname !== 'github.com' ||
     repository.username ||
     repository.password ||
-    !/^\/YohanVallier\/(DataForge|AutomatedDataPipeline)$/.test(repository.pathname)
+    !/^\/YohanVallier\/(DataForge|AutomatedDataPipeline|BeaconOps|VALLIERFLUX)$/.test(
+      repository.pathname,
+    )
   ) {
     throw new Error('repository_not_allowed');
   }
@@ -252,9 +256,13 @@ export async function collectRepository(
       if (isManifest(entry.path)) paths.push(entry.path);
     }
   }
-  paths.sort((left, right) => left.split('/').length - right.split('/').length || left.localeCompare(right));
+  paths.sort(
+    (left, right) => left.split('/').length - right.split('/').length || left.localeCompare(right),
+  );
   if (paths.length > MAX_MANIFESTS) {
-    report.pending.push(`Coleta limitada a ${MAX_MANIFESTS} manifestos; revisar os demais manualmente.`);
+    report.pending.push(
+      `Coleta limitada a ${MAX_MANIFESTS} manifestos; revisar os demais manualmente.`,
+    );
   }
   for (const path of paths.slice(0, MAX_MANIFESTS)) {
     if (stopped) break;
@@ -264,7 +272,9 @@ export async function collectRepository(
     else report.pending.push(`Arquivo não coletado ou inválido: ${path}`);
   }
   report.observations.push(`Coletados ${report.files.length} arquivos para leitura humana.`);
-  report.pending.push('Revisar o código de implementação antes de afirmar funcionalidades ou diferenciais.');
+  report.pending.push(
+    'Revisar o código de implementação antes de afirmar funcionalidades ou diferenciais.',
+  );
   report.outcome = report.pending.length === 1 ? 'collected_for_review' : 'partial';
   return report;
 }
@@ -284,31 +294,40 @@ export async function main(): Promise<void> {
       (request) => request.result === 'rate_limit' || request.status === 403,
     );
   }
-  const incomplete = skipped.length > 0 || repositories.some(
-    (repository) => repository.outcome !== 'collected_for_review',
+  const incomplete =
+    skipped.length > 0 ||
+    repositories.some((repository) => repository.outcome !== 'collected_for_review');
+  process.stdout.write(
+    `${JSON.stringify(
+      {
+        event: 'github_source_collection',
+        schemaVersion: 1,
+        result: incomplete ? 'incomplete' : 'collected_for_review',
+        generatedAt: new Date().toISOString(),
+        humanReviewRequired: true,
+        publishedContentModified: false,
+        warning:
+          'Conteúdo remoto não confiável. Não executar nem renderizar como HTML. Presença de dependência não comprova funcionalidade.',
+        repositories,
+        skipped,
+      },
+      null,
+      2,
+    )}\n`,
   );
-  process.stdout.write(`${JSON.stringify({
-    event: 'github_source_collection',
-    schemaVersion: 1,
-    result: incomplete ? 'incomplete' : 'collected_for_review',
-    generatedAt: new Date().toISOString(),
-    humanReviewRequired: true,
-    publishedContentModified: false,
-    warning: 'Conteúdo remoto não confiável. Não executar nem renderizar como HTML. Presença de dependência não comprova funcionalidade.',
-    repositories,
-    skipped,
-  }, null, 2)}\n`);
   if (incomplete) process.exitCode = 1;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch(() => {
-    console.error(JSON.stringify({
-      event: 'github_source_collection',
-      level: 'error',
-      result: 'failed',
-      reason: 'unexpected_collection_failure',
-    }));
+    console.error(
+      JSON.stringify({
+        event: 'github_source_collection',
+        level: 'error',
+        result: 'failed',
+        reason: 'unexpected_collection_failure',
+      }),
+    );
     process.exitCode = 1;
   });
 }

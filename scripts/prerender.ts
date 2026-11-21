@@ -1,3 +1,17 @@
+import crypto from 'node:crypto';
+const cryptoWithHash = crypto as unknown as {
+  hash?: (
+    algorithm: string,
+    data: crypto.BinaryLike,
+    outputEncoding?: crypto.BinaryToTextEncoding | 'buffer',
+  ) => string | Buffer;
+};
+if (typeof cryptoWithHash.hash !== 'function') {
+  cryptoWithHash.hash = (algorithm, data, outputEncoding = 'hex') => {
+    const digest = crypto.createHash(algorithm).update(data);
+    return outputEncoding === 'buffer' ? digest.digest() : digest.digest(outputEncoding);
+  };
+}
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { createElement } from 'react';
@@ -9,7 +23,7 @@ function resolveValidSiteUrl(raw: string | undefined): string | null {
   if (!trimmed) return null;
   try {
     const parsed = new URL(trimmed);
-    if (parsed.protocol !== 'https:'\) return null;
+    if (parsed.protocol !== 'https:') return null;
     return parsed.origin;
   } catch {
     return null;

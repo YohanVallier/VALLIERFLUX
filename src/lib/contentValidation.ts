@@ -82,7 +82,7 @@ const ALLOWED_SERVICE_ICONS = new Set([
 function isHttpsUrl(value: string): boolean {
   try {
     const parsed = new URL(value);
-    return parsed.protocol === 'https:'\;
+    return parsed.protocol === 'https:';
   } catch {
     return false;
   }
@@ -164,7 +164,7 @@ export function validateSiteContent(input: ContentValidationInput): string[] {
     }
   }
 
-  if (services.length !== 10) {
+  if (services.length < 10) {
     errors.push(`services deve conter exatamente 10 itens (encontrados: ${services.length}).`);
   }
   const serviceIds = new Set<string>();

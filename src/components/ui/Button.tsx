@@ -4,7 +4,7 @@ import styles from './Button.module.css';
 type SharedProps = {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'ghost';
-  className?: string;
+  className?: string | undefined;
 };
 
 type ActionProps = SharedProps &

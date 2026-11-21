@@ -62,4 +62,46 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: 'beacon-ops',
+    name: 'BeaconOps',
+    repositoryUrl: 'https://github.com/YohanVallier/BeaconOps',
+    verificationStatus: 'pending',
+    summary: null,
+    problem: null,
+    technologies: [],
+    features: [],
+    technicalHighlight: null,
+    evidence: [
+      {
+        sourceType: 'user_context',
+        sourceUrl: 'https://github.com/YohanVallier/BeaconOps',
+        commitSha: null,
+        checkedAt: null,
+        notes:
+          'Nome e URL do repositório informados pelo titular; detalhes técnicos aguardam consulta e revisão.',
+      },
+    ],
+  },
+  {
+    id: 'vallier-flux',
+    name: 'VALLIERFLUX',
+    repositoryUrl: 'https://github.com/YohanVallier/VALLIERFLUX',
+    verificationStatus: 'pending',
+    summary: null,
+    problem: null,
+    technologies: [],
+    features: [],
+    technicalHighlight: null,
+    evidence: [
+      {
+        sourceType: 'user_context',
+        sourceUrl: 'https://github.com/YohanVallier/VALLIERFLUX',
+        commitSha: null,
+        checkedAt: null,
+        notes:
+          'Nome e URL do repositório informados pelo titular; detalhes técnicos aguardam consulta e revisão.',
+      },
+    ],
+  },
 ];

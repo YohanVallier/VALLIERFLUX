@@ -32,7 +32,10 @@ describe('Header', () => {
     const toggle = screen.getByRole('button', { name: 'Abrir menu' });
     expect(nav).toHaveAttribute('inert');
     await user.click(toggle);
-    expect(screen.getByRole('button', { name: 'Fechar menu' })).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByRole('button', { name: 'Fechar menu' })).toHaveAttribute(
+      'aria-expanded',
+      'true',
+    );
     expect(nav).not.toHaveAttribute('inert');
     await user.keyboard('{Escape}');
     const closed = screen.getByRole('button', { name: 'Abrir menu' });
@@ -61,11 +64,19 @@ describe('Header', () => {
 
   it('transfere foco para a seção quando ela não tem heading', async () => {
     const user = userEvent.setup();
-    render(<><Header /><section id="sobre" aria-label="Destino sem título" /></>);
+    render(
+      <>
+        <Header />
+        <section id="sobre" aria-label="Destino sem título" />
+      </>,
+    );
     await user.click(screen.getByRole('button', { name: 'Abrir menu' }));
-    await user.click(screen.getByRole('link', { name: 'Sobre', exact: true }));
+    await user.click(screen.getByRole('link', { name: /^Sobre$/ }));
     expect(document.getElementById('sobre')).toHaveFocus();
-    expect(screen.getByRole('button', { name: 'Abrir menu' })).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.getByRole('button', { name: 'Abrir menu' })).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    );
   });
 
   it('não torna a navegação desktop inerte', () => {

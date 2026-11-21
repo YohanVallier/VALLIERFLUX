@@ -63,15 +63,13 @@ export const services: ServiceContent[] = [
   {
     id: 'web-applications',
     title: 'Desenvolvimento de aplicações web',
-    description:
-      'Construção de funcionalidades e aplicações web com escopo definido em conjunto.',
+    description: 'Construção de funcionalidades e aplicações web com escopo definido em conjunto.',
     iconId: 'app-window',
   },
   {
     id: 'landing-pages',
     title: 'Criação de Landing Pages',
-    description:
-      'Páginas responsivas para apresentar uma marca, serviço ou projeto com clareza.',
+    description: 'Páginas responsivas para apresentar uma marca, serviço ou projeto com clareza.',
     iconId: 'panels-top-left',
   },
   {
@@ -94,6 +92,20 @@ export const services: ServiceContent[] = [
     description:
       'Verificação de funcionalidades, identificação de problemas e registro de cenários de teste.',
     iconId: 'list-checks',
+  },
+  {
+    id: 'desenvolvimento-mobile',
+    iconId: 'app-window',
+    title: 'Desenvolvimento mobile',
+    description:
+      'Desenvolvimento de aplicações mobile com foco em usabilidade, interfaces funcionais e integração com APIs e serviços digitais.',
+  },
+  {
+    id: 'automacoes-n8n',
+    iconId: 'workflow',
+    title: 'Automações com n8n',
+    description:
+      'Criação de fluxos automatizados no n8n para conectar ferramentas, integrar APIs e webhooks e reduzir tarefas operacionais repetitivas.',
   },
 ];
 

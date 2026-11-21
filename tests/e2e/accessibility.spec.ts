@@ -7,12 +7,15 @@ const desktopBreakpoint = 72 * 16;
 
 test('página e seções não apresentam violações das regras WCAG selecionadas', async ({ page }) => {
   await page.goto('/');
-  const pageResults = await new AxeBuilder({ page }).withTags(tags).analyze();
+  const pageResults = await new AxeBuilder({ page: page as never }).withTags(tags).analyze();
   expect(pageResults.violations).toEqual([]);
 
   for (const id of ids) {
     await page.locator(`#${id}`).scrollIntoViewIfNeeded();
-    const results = await new AxeBuilder({ page }).include(`#${id}`).withTags(tags).analyze();
+    const results = await new AxeBuilder({ page: page as never })
+      .include(`#${id}`)
+      .withTags(tags)
+      .analyze();
     expect(results.violations, `Violações na seção ${id}`).toEqual([]);
   }
 });
@@ -30,7 +33,7 @@ test.describe('menu mobile', () => {
     await expect(toggle).toBeVisible();
     await toggle.click();
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-    const results = await new AxeBuilder({ page }).withTags(tags).analyze();
+    const results = await new AxeBuilder({ page: page as never }).withTags(tags).analyze();
     expect(results.violations).toEqual([]);
   });
 });
