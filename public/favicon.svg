@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>VALLIER.FLUX — VF</title>
+  <rect width="64" height="64" rx="15" fill="#08060D"/>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <path d="M10 18h7l7 23 7-23h7L27 48h-6Z" fill="#F5F3FF"/>
+  <path d="M39 18h16v6H45v7h9v6h-9v11h-6Z" fill="#A78BFA"/>
+</svg>

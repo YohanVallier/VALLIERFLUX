@@ -1,0 +1,399 @@
+{
+  "project": {
+    "project_id": "vallier-flux-portfolio",
+    "project_name": "VALLIER FLUX",
+    "description": "Portfólio profissional de Yohan Vallier com identidade própria VALLIER.FLUX, dedicado a Ciência de Dados, Automação e Desenvolvimento Full Stack.",
+    "project_type": "frontend",
+    "objectives": [
+      "Apresentar competências, experiência, projetos e serviços com credibilidade e sem exagerar o nível de domínio técnico.",
+      "Criar uma experiência tecnológica, sofisticada, acessível e predominantemente preta e roxa.",
+      "Facilitar contatos de recrutadores, clientes e colaboradores por canais funcionais.",
+      "Permitir atualização de conteúdo e inclusão de projetos sem reconstruir componentes."
+    ],
+    "scope": {
+      "included": [
+        "Aplicação React com TypeScript, Vite e CSS Modules.",
+        "Oito seções: Header, Hero, Sobre, Habilidades, Projetos, Serviços, Experiência e formação, Contato.",
+        "Footer com identidade VALLIER.FLUX e slogan CODE. DATA. AUTOMATION.",
+        "Navegação responsiva, menu mobile, indicadores de seção e acessibilidade por teclado.",
+        "Projetos alimentados por arquivos locais tipados e verificados contra os repositórios de origem.",
+        "Formulário validado com integração opcional real ao Formspree e estado explícito de configuração pendente.",
+        "SEO, Open Graph, favicon VF e documentação operacional.",
+        "Testes automatizados, verificação de build e registro das evidências de validação."
+      ],
+      "excluded": [
+        "Backend próprio, banco de dados, autenticação e painel administrativo.",
+        "Blog, sistema de pagamentos, chatbot e funcionalidades não solicitadas.",
+        "Métricas profissionais, datas, certificações ou tecnologias de projetos sem comprovação.",
+        "Integração com n8n apenas por ele ter transportado a solicitação.",
+        "Analytics, cookies de rastreamento e animações 3D pesadas.",
+        "Afirmação de que o projeto já foi implementado, executado ou auditado nesta etapa de arquitetura."
+      ]
+    },
+    "delivery_status": {
+      "current_stage": "Planejamento arquitetural e contratos de execução.",
+      "implementation_completed": false,
+      "runtime_verified": false,
+      "repositories_inspected": false,
+      "note": "Esta entrega especifica a implementação. Os agentes executores deverão produzir os arquivos, executar comandos e registrar resultados reais."
+    }
+  },
+  "requirements": {
+    "functional": [
+      {"id":"RF-01","description":"Exibir VALLIER.FLUX no header e footer, VF no favicon, VALLIER FLUX no título da página e CODE. DATA. AUTOMATION. na identidade."},
+      {"id":"RF-02","description":"Disponibilizar navegação para Início, Sobre, Habilidades, Projetos, Serviços, Experiência e Contato, com âncoras reais e compensação do header fixo."},
+      {"id":"RF-03","description":"Apresentar Yohan Vallier e os textos exatos solicitados para título e subtítulo do Hero, com CTAs para projetos e contato e links sociais funcionais."},
+      {"id":"RF-04","description":"Criar composição tecnológica abstrata de terminal, código e dados, sem ilustrações genéricas de pessoas nem simulação de resultados profissionais."},
+      {"id":"RF-05","description":"Apresentar a experiência informada na Farmoquímica com processos administrativos e produtividade, consolidação de dados, Python, Pandas, OpenPyXL, planilhas e indicadores, sem números ou atribuições adicionais."},
+      {"id":"RF-06","description":"Organizar competências nas categorias Data Science, Automação e Integrações, Front-end, Back-end, Banco de Dados e Ferramentas e Infraestrutura, sem percentuais ou classificações de senioridade."},
+      {"id":"RF-07","description":"Exibir DataForge e AutomatedDataPipeline com links reais e informações verificadas. Nome, descrição, problema, tecnologias, funcionalidades e diferencial devem ser obtidos das fontes ou identificados como não informados."},
+      {"id":"RF-08","description":"Apresentar todos os dez serviços solicitados, sem promessas de resultados ou garantias técnicas não informadas."},
+      {"id":"RF-09","description":"Apresentar linha do tempo com experiência na Farmoquímica e formação atual em Ciência de Dados, sem inventar cargo, instituição, modalidade, datas ou diploma."},
+      {"id":"RF-10","description":"Disponibilizar e-mail, GitHub e LinkedIn informados, formulário com validação e feedback acessível, sem simulação de envio."},
+      {"id":"RF-11","description":"Permitir personalização de conteúdo, marca, serviços e projetos em arquivos locais tipados."},
+      {"id":"RF-12","description":"Entregar instalação reproduzível, build de produção, documentação, variáveis de ambiente exemplificadas e evidências de testes."}
+    ],
+    "non_functional": [
+      {"id":"RNF-01","description":"Layout responsivo a partir de 320 px, sem rolagem horizontal em viewports comuns e com funcionamento em navegadores modernos."},
+      {"id":"RNF-02","description":"Buscar conformidade WCAG 2.2 AA: contraste, semântica, foco visível, labels, mensagens de erro associadas, navegação por teclado e ausência de armadilhas de foco."},
+      {"id":"RNF-03","description":"Respeitar prefers-reduced-motion, não depender de hover e não executar animações contínuas custosas."},
+      {"id":"RNF-04","description":"Meta de Lighthouse em build de produção: Performance >= 90 e Accessibility, Best Practices e SEO >= 95, com ambiente e limitações registrados."},
+      {"id":"RNF-05","description":"Meta inicial de JavaScript de entrada <= 120 KiB gzip, sem bibliotecas de animação, fontes remotas bloqueantes ou SDK do GitHub no navegador."},
+      {"id":"RNF-06","description":"TypeScript strict, componentes coesos, validação de configuração externa e nenhum segredo incluído no bundle."},
+      {"id":"RNF-07","description":"Conteúdo principal presente no HTML distribuído por pré-renderização da rota inicial; metadados sociais gerados durante o build."},
+      {"id":"RNF-08","description":"Publicação exclusivamente por HTTPS e minimização dos dados coletados no formulário."}
+    ]
+  },
+  "technology_stack": {
+    "frontend": [
+      "React com TypeScript.",
+      "Vite com template react-ts.",
+      "CSS Modules e CSS custom properties para tokens visuais.",
+      "Lucide React para ícones de interface e serviços.",
+      "SVGs locais de tecnologias selecionadas a partir de fontes oficiais ou Simple Icons, respeitando licenças.",
+      "CSS transitions, IntersectionObserver e APIs nativas para interações."
+    ],
+    "backend": ["Nenhum backend próprio.","Formspree como processador externo opcional de formulário, configurado pelo responsável pela publicação."],
+    "database": ["Sem banco de dados: conteúdo versionado em módulos TypeScript e JSON local."],
+    "infrastructure": [
+      "Node.js LTS compatível com as versões escolhidas, fixado em .nvmrc.",
+      "npm e package-lock.json versionado.",
+      "Hospedagem estática HTTPS, com configuração de referência para Netlify.",
+      "GitHub Actions para integração contínua."
+    ],
+    "testing": ["Vitest.","React Testing Library e jest-dom.","Playwright.","@axe-core/playwright.","Lighthouse CI."],
+    "additional_tools": [
+      "ESLint com regras React Hooks e TypeScript.",
+      "Prettier.",
+      "React DOM Server para pré-renderização local no build.",
+      "tsx para scripts TypeScript de build e verificação de conteúdo.",
+      "Git e GitHub."
+    ],
+    "selection_rationale": [
+      "A publicação de conteúdo e os contatos externos não justificam servidor, autenticação ou banco próprios.",
+      "CSS Modules evita dependências de estilização e permite uma identidade visual específica.",
+      "A pré-renderização melhora a disponibilidade do conteúdo para mecanismos de busca sem migrar para um framework de servidor.",
+      "O formulário externo elimina infraestrutura de e-mail própria; permanece desabilitado até a configuração real.",
+      "Versões exatas serão fixadas durante o bootstrap após verificar compatibilidade e instalar dependências."
+    ]
+  },
+  "architecture": {
+    "pattern": "Frontend modular estático, orientado a conteúdo, com pré-renderização da página inicial e serviço isolado para contato.",
+    "overview": "Componentes de seção consomem conteúdo tipado e componentes visuais compartilhados. A geração de HTML ocorre no build; o navegador hidrata a aplicação e ativa menu, navegação e formulário. Informações de projetos são verificadas fora do runtime e publicadas localmente. Não haverá chamadas ao GitHub durante a navegação.",
+    "components": [
+      {"name":"Camada de apresentação","responsibility":"Seções, layout, componentes reutilizáveis, estados de interface e acessibilidade."},
+      {"name":"Conteúdo e proveniência","responsibility":"Marca, perfil, competências, serviços, experiência e projetos, com fontes e campos não confirmados explícitos."},
+      {"name":"Serviço de contato","responsibility":"Validar dados e endpoint, executar requisição real, controlar timeout e traduzir erros sem expor detalhes internos."},
+      {"name":"Pipeline de publicação","responsibility":"Validar conteúdo, gerar HTML e metadados, compilar assets e executar verificações."},
+      {"name":"Ferramenta de verificação GitHub","responsibility":"Consultar README, árvore e manifestos sob demanda para apoiar revisão humana e registrar evidências, sem publicar inferências automaticamente."}
+    ],
+    "communication_flow": [
+      "Arquivos de conteúdo -> validação -> renderização React no build -> dist/index.html.",
+      "HTML pré-renderizado -> hydrateRoot no navegador -> ativação das interações.",
+      "Cliques de navegação -> âncoras nativas -> atualização progressiva do indicador de seção.",
+      "Formulário -> validação local -> verificação de configuração -> POST HTTPS ao Formspree -> feedback acessível.",
+      "Script de verificação -> GitHub REST API -> relatório local de evidências -> revisão humana -> atualização de projects.ts."
+    ],
+    "design_system": {
+      "brand":"VALLIER.FLUX",
+      "symbol":"VF",
+      "slogan":"CODE. DATA. AUTOMATION.",
+      "colors":{"background":"#08060D","surface":"#100C18","primary":"#8B5CF6","primary_strong":"#7C3AED","primary_light":"#A78BFA","text":"#F5F3FF","muted":"#A1A1AA"},
+      "typography": {
+        "headings":"Space Grotesk variável, hospedada localmente com licença.",
+        "body":"Pilha system-ui para legibilidade e menor carga.",
+        "technical_details":"Pilha ui-monospace para terminal decorativo e pequenos rótulos.",
+        "loading":"font-display: swap, subconjunto mínimo disponível e fallback estável."
+      },
+      "layout": [
+        "Container central com largura máxima de 1200 px e espaçamento fluido.",
+        "Hero em duas colunas no desktop e uma coluna em telas pequenas.",
+        "Cards em grade adaptativa de uma a três colunas.",
+        "Escala de espaçamento baseada em múltiplos de 4 px.",
+        "Alvos interativos com área preferencial mínima de 44 por 44 px."
+      ],
+      "effects": [
+        "Grid de fundo discreto produzido com CSS.",
+        "Gradientes e halos limitados a áreas decorativas.",
+        "Cards translúcidos com bordas sutis, preservando contraste sem depender de backdrop-filter.",
+        "Transições curtas de opacity e transform, sem esconder conteúdo quando JavaScript ou IntersectionObserver estiverem indisponíveis.",
+        "Terminal decorativo estático com aria-hidden; sem métricas ou alegações fictícias."
+      ],
+      "brand_precedence":"As definições finais VALLIER.FLUX e VF substituem a sugestão inicial de YV; Yohan Vallier permanece como identidade pessoal."
+    },
+    "security_strategy": [
+      "Não usar dangerouslySetInnerHTML para conteúdo de repositórios.",
+      "Não renderizar README remoto como HTML; somente dados revisados e estruturados.",
+      "Validar URLs de origem e permitir apenas HTTPS nos links externos, exceto mailto explícito.",
+      "Configuração pública de formulário limitada a endpoints https://formspree.io/f/{id}.",
+      "Nunca colocar tokens GitHub ou credenciais de e-mail em variáveis VITE_.",
+      "Aplicar CSP com connect-src limitado ao próprio domínio e Formspree; testar a política no preview publicado.",
+      "Aplicar Referrer-Policy, X-Content-Type-Options e frame-ancestors 'none'; configurar HSTS quando o domínio e HTTPS estiverem confirmados.",
+      "Links externos em nova aba devem usar rel='noopener noreferrer'.",
+      "Não registrar mensagens, nomes ou e-mails do formulário em logs, analytics ou relatórios.",
+      "Ativar proteção antispam e limites no provedor; bloqueio de envios repetidos na interface não substitui proteção de servidor.",
+      "Registrar no README dependência de configuração do provedor, destinatário, política de retenção e aviso de privacidade antes de ativar o formulário."
+    ],
+    "change_control":"Mudanças de stack, contratos, modelos ou responsabilidades exigem atualização de docs/project-spec.json e aprovação do agente de arquitetura antes de implementação."
+  },
+  "database_schema": [],
+  "api_contracts": [
+    {
+      "id":"API-CONTACT",
+      "provider":"Formspree",
+      "method":"POST",
+      "endpoint":"VITE_CONTACT_ENDPOINT, no formato https://formspree.io/f/{id}",
+      "enabled_when":"Endpoint válido, conta e destinatário configurados, aviso de privacidade revisado e envio de homologação confirmado.",
+      "request": {
+        "headers":{"Accept":"application/json","Content-Type":"application/json"},
+        "body":{"name":"string trim, entre 2 e 100 caracteres","email":"string trim, formato de e-mail válido, até 254 caracteres","message":"string trim, entre 10 e 5000 caracteres"}
+      },
+      "response_handling": {
+        "success":"Considerar sucesso somente com HTTP 2xx e confirmação positiva do provedor; informar que a mensagem foi recebida para processamento, sem garantir entrega à caixa postal.",
+        "validation_error":"Apresentar erro legível sem reproduzir payload bruto.",
+        "rate_limit":"Em HTTP 429, orientar aguardar e oferecer contato por e-mail.",
+        "network_error":"Preservar os campos, não reenviar automaticamente e oferecer nova tentativa.",
+        "timeout":"Abortar após 15 segundos e informar que não foi possível confirmar o envio.",
+        "unconfigured":"Exibir aviso persistente de configuração pendente e botão de envio desabilitado; manter campos validáveis e canais diretos ativos."
+      },
+      "privacy":"Informar antes do envio que nome, e-mail e mensagem serão processados pelo provedor externo. Nunca afirmar inexistência de tratamento por terceiros."
+    },
+    {
+      "id":"API-GITHUB-VERIFY",
+      "provider":"GitHub REST API",
+      "execution":"Somente script local ou job manual de CI.",
+      "method":"GET",
+      "endpoints": [
+        "https://api.github.com/repos/YohanVallier/DataForge",
+        "https://api.github.com/repos/YohanVallier/AutomatedDataPipeline",
+        "https://api.github.com/repos/{owner}/{repo}/readme",
+        "https://api.github.com/repos/{owner}/{repo}/git/trees/{resolved_commit_sha}?recursive=1",
+        "https://api.github.com/repos/{owner}/{repo}/contents/{path}?ref={resolved_commit_sha}"
+      ],
+      "request":{"headers":["Accept: application/vnd.github+json","Authorization: Bearer GITHUB_TOKEN, somente se disponível no ambiente do script."]},
+      "response_handling": {
+        "success":"Registrar URL, commit, arquivos consultados, fatos extraídos e momento da consulta; exigir revisão humana.",
+        "not_found":"Marcar fonte inacessível sem inferir conteúdo.",
+        "rate_limit":"Respeitar limites e encerrar sem apagar conteúdo já verificado.",
+        "failure":"Gerar relatório de pendências; a aplicação continua usando conteúdo local."
+      }
+    }
+  ],
+  "directory_structure": [
+    {"path":"package.json","purpose":"Dependências e comandos dev, build, preview, lint, typecheck, test, test:e2e, verify:projects e check:content."},
+    {"path":"package-lock.json","purpose":"Instalação reproduzível."},
+    {"path":".nvmrc","purpose":"Versão de Node.js adotada."},
+    {"path":".env.example","purpose":"VITE_SITE_URL e VITE_CONTACT_ENDPOINT; sem valores secretos."},
+    {"path":".gitignore","purpose":"Excluir node_modules, dist, .env locais, coverage e artefatos temporários."},
+    {"path":"index.html","purpose":"Template de HTML e ponto de montagem."},
+    {"path":"vite.config.ts","purpose":"Configuração de desenvolvimento e build compatível com pré-renderização."},
+    {"path":"tsconfig.json","purpose":"Configuração TypeScript strict para aplicação, scripts e testes."},
+    {"path":"eslint.config.js","purpose":"Regras estáticas de qualidade."},
+    {"path":".prettierrc.json","purpose":"Formatação consistente."},
+    {"path":"vitest.config.ts","purpose":"Ambiente de testes unitários e de componentes."},
+    {"path":"playwright.config.ts","purpose":"Testes de navegação, responsividade e acessibilidade."},
+    {"path":"lighthouserc.json","purpose":"Metas e execução da auditoria de qualidade."},
+    {"path":"netlify.toml","purpose":"Build, publicação de dist e cabeçalhos de segurança da hospedagem de referência."},
+    {"path":".github/workflows/ci.yml","purpose":"Pipeline de instalação, verificações, testes e build."},
+    {"path":"public/favicon.svg","purpose":"Símbolo VF vetorial."},
+    {"path":"public/og-cover.png","purpose":"Imagem social 1200 por 630 com marca, slogan e nome."},
+    {"path":"public/fonts/space-grotesk-latin.woff2","purpose":"Fonte local otimizada."},
+    {"path":"public/fonts/OFL.txt","purpose":"Licença da fonte distribuída."},
+    {"path":"src/main.tsx","purpose":"Hidratação da aplicação no navegador."},
+    {"path":"src/App.tsx","purpose":"Composição única das seções."},
+    {"path":"src/styles/tokens.css","purpose":"Cores, tipografia, espaçamento, camadas e movimento."},
+    {"path":"src/styles/global.css","purpose":"Reset mínimo, semântica visual, foco, âncoras e redução de movimento."},
+    {"path":"src/types/content.ts","purpose":"Contratos de conteúdo e proveniência."},
+    {"path":"src/types/contact.ts","purpose":"Estados e resultados do contato."},
+    {"path":"src/content/site.ts","purpose":"Marca, textos exatos, links, SEO e navegação."},
+    {"path":"src/content/profile.ts","purpose":"Sobre, experiência e formação sem dados inventados."},
+    {"path":"src/content/skills.ts","purpose":"Categorias e competências."},
+    {"path":"src/content/services.ts","purpose":"Dez serviços solicitados."},
+    {"path":"src/content/projects.ts","purpose":"Dados dos dois projetos, fontes e estado de verificação."},
+    {"path":"src/assets/tech-icons/","purpose":"Somente SVGs efetivamente utilizados e licença correspondente."},
+    {"path":"src/components/ui/{Button,Container,SectionHeading,IconLink,TechIcon}.tsx","purpose":"Primitivas reutilizáveis, com CSS Modules correspondente quando necessário."},
+    {"path":"src/components/layout/{Header,Footer}.tsx","purpose":"Marca, navegação desktop/mobile e rodapé, com CSS Modules correspondente."},
+    {"path":"src/components/sections/{Hero,About,Skills,Projects,Services,Experience,Contact}.tsx","purpose":"Seções com CSS Modules correspondente."},
+    {"path":"src/components/projects/ProjectCard.tsx","purpose":"Apresentação de dados verificados e fallback explícito, com CSS Module."},
+    {"path":"src/components/contact/ContactForm.tsx","purpose":"Formulário acessível e estados de envio, com CSS Module."},
+    {"path":"src/hooks/{useActiveSection,useReveal}.ts","purpose":"Observação progressiva de seções e entradas discretas."},
+    {"path":"src/lib/{contactValidation,contentValidation}.ts","purpose":"Regras puras de validação."},
+    {"path":"src/services/contact.ts","purpose":"Configuração e integração HTTP isolada."},
+    {"path":"scripts/{prerender,verify-projects,check-content}.ts","purpose":"Pré-renderização e SEO, consulta de fontes e integridade do conteúdo."},
+    {"path":"tests/setup.ts","purpose":"Preparação de Testing Library e mocks."},
+    {"path":"tests/unit/{contactValidation,contentValidation,contactService,prerender}.test.ts","purpose":"Contratos e regras isoladas."},
+    {"path":"tests/components/{Header,ProjectCard,ContactForm}.test.tsx","purpose":"Comportamentos dos componentes críticos."},
+    {"path":"tests/e2e/{navigation,contact,accessibility,seo}.spec.ts","purpose":"Fluxos reais no navegador."},
+    {"path":"docs/project-spec.json","purpose":"Especificação central versionada compartilhada por todos os agentes."},
+    {"path":"docs/{content-sources,design-system,privacy,validation-report,review}.md","purpose":"Proveniência, identidade, tratamento de dados e evidências de qualidade."},
+    {"path":"README.md","purpose":"Instalação, comandos, personalização, formulário, deploy e limitações."}
+  ],
+  "shared_interfaces": [
+    {
+      "name":"SectionId",
+      "definition":"União: inicio | sobre | habilidades | projetos | servicos | experiencia | contato.",
+      "rules":["IDs das seções e hrefs de navegação devem corresponder exatamente.","A navegação continua funcional sem IntersectionObserver."]
+    },
+    {
+      "name":"Evidence",
+      "fields":{"sourceType":"user_context | repository","sourceUrl":"string | null","commitSha":"string | null","checkedAt":"string ISO 8601 | null","notes":"string"},
+      "rules":["checkedAt deve refletir consulta realizada, nunca a data presumida.","Informações pessoais recebidas são declaradas pelo titular, não verificadas por fonte independente."]
+    },
+    {
+      "name":"Project",
+      "fields":{"id":"string única","name":"string","repositoryUrl":"URL HTTPS","verificationStatus":"pending | partial | verified | unavailable","summary":"string | null","problem":"string | null","technologies":"string[]","features":"string[]","technicalHighlight":"string | null","evidence":"Evidence[]"},
+      "rules":[
+        "Os nomes DataForge e AutomatedDataPipeline e suas URLs são os únicos dados iniciais confirmados pelo contexto.",
+        "Não inferir stack ou funcionalidades a partir do nome do repositório.",
+        "Campos desconhecidos recebem null ou array vazio, nunca conteúdo promocional fictício.",
+        "Enquanto pendentes, os cards exibem link funcional e aviso de detalhes técnicos em verificação.",
+        "Listas sem evidência não devem ser preenchidas para completar o layout."
+      ]
+    },
+    {
+      "name":"SkillCategory",
+      "fields":{"id":"string","title":"uma das seis categorias requeridas","items":"Array de { name: string, iconId: string | null }"},
+      "rules":["Sem score, percentual, selo de especialista ou domínio avançado presumido.","Ícone acompanhado de nome textual; tecnologia sem marca específica usa ícone genérico identificado."],
+      "initial_grouping": {
+        "Data Science":["Python","Pandas","NumPy","Análise e tratamento de dados","Power BI","Excel","Machine Learning em desenvolvimento"],
+        "Automação e Integrações":["Automação de processos","n8n","Web Scraping","Integrações e APIs","OpenPyXL"],
+        "Front-end":["HTML","CSS","JavaScript","React","Landing Pages"],
+        "Back-end":["Python","PHP","Desenvolvimento de aplicações web"],
+        "Banco de Dados":["SQL","Bancos de dados"],
+        "Ferramentas e Infraestrutura":["Git","GitHub","WordPress","Infraestrutura básica","QA e testes de software"]
+      },
+      "additional_note":"Desenvolvimento mobile deve aparecer como área de interesse e desenvolvimento, sem associar Kotlin, Flutter ou outra tecnologia não informada."
+    },
+    {
+      "name":"TimelineEntry",
+      "fields":{"id":"string","kind":"work | education","title":"string","organization":"string | null","dateLabel":"string | null","description":"string","evidence":"Evidence[]"},
+      "rules":["Farmoquímica é organização informada; cargo e datas permanecem ausentes.","Ciência de Dados é formação atual declarada; instituição e tipo de curso permanecem ausentes.","Itens sem datas não devem sugerir uma cronologia específica."]
+    },
+    {"name":"ContactPayload","fields":{"name":"string","email":"string","message":"string"}},
+    {
+      "name":"ContactState",
+      "definition":"unconfigured | idle | validating | submitting | success | error",
+      "rules":["Somente submitting bloqueia alterações para impedir duplicação durante uma requisição.","unconfigured mantém validação de campos, mas impede requisições e exibe instrução clara.","success exige confirmação real do provedor.","error preserva os dados."]
+    },
+    {
+      "name":"SiteConfig",
+      "fields":{"brand":"VALLIER.FLUX","owner":"Yohan Vallier","slogan":"CODE. DATA. AUTOMATION.","email":"yohanvallier01@gmail.com","github":"https://github.com/YohanVallier","linkedin":"https://www.linkedin.com/in/yohan-vallier-895a342b7/","siteUrl":"URL HTTPS pública ou null","contactEndpoint":"endpoint público validado ou null"},
+      "rules":["Canonical, og:url, sitemap e robots de produção só usam domínio real configurado.","Deploy de preview sem domínio definitivo permanece noindex, sem canonical fictício.","O e-mail direto usa mailto; não deve ser apresentado como envio automático de formulário."]
+    }
+  ],
+  "coding_standards": [
+    "Identificadores em inglês e conteúdo apresentado em português brasileiro.",
+    "Componentes em PascalCase; funções, hooks e variáveis em camelCase.",
+    "TypeScript strict; evitar any, casts desnecessários e estados impossíveis.",
+    "Clean Code, SOLID quando aplicável, DRY, KISS e YAGNI sem camadas artificiais.",
+    "Lógica de rede fora dos componentes e regras de validação como funções puras.",
+    "HTML semântico com um h1, hierarquia coerente e landmarks.",
+    "Ícones decorativos com aria-hidden e botões de ícone com nome acessível.",
+    "Usar button para ações e a para navegação.",
+    "Efeitos que usam window, document ou matchMedia somente no cliente para preservar pré-renderização.",
+    "Não gerar conteúdo inicial com Math.random, horário atual ou valores dependentes do navegador que causem divergência de hidratação.",
+    "Erros tratados por categorias, sem logs de dados pessoais.",
+    "Scripts podem emitir logs estruturados com evento, nível e resultado; não criar diretório de logs no frontend.",
+    "Nenhum segredo, arquivo .env local, token ou dado de formulário versionado.",
+    "Comitar arquivos de lock e alterações pequenas por tarefa.",
+    "Não criar diretórios, abstrações ou dependências sem uso concreto."
+  ],
+  "file_ownership": [
+    {"owner":"openai_developer","scope":"Configuração, conteúdo, componentes, assets, scripts de consulta e publicação, documentação de instalação e implantação.","exceptions":"Não editar validadores, serviço de contato ou testes de outro agente sem transferência explícita."},
+    {"owner":"deepseek_logic","scope":"src/lib/contactValidation.ts, src/lib/contentValidation.ts, src/services/contact.ts e scripts/check-content.ts."},
+    {"owner":"deepseek_qa","scope":"tests/**, configurações de testes, lighthouserc.json e .github/workflows/ci.yml."},
+    {"owner":"deepseek_reviewer","scope":"docs/review.md; demais arquivos apenas leitura."},
+    {"owner":"openai_corrector","scope":"Permissão temporária limitada aos arquivos associados a achados aprovados; exclusividade de edição durante a correção."},
+    {"owner":"openai_validator","scope":"docs/validation-report.md; implementação apenas leitura."},
+    {"owner":"architecture_owner","scope":"Aprovação de alterações em docs/project-spec.json, contratos compartilhados e dependências."}
+  ],
+  "dependencies": {
+    "task_graph":["T01 -> T02, T03, T04","T02 + T04 -> T05","T03 + T05 -> T06","T06 -> T07 -> T08 -> T09 -> T10 -> T11 -> T12"],
+    "parallel_execution":["T02, T03 e T04 podem executar em paralelo após T01.","QA pode preparar a matriz de testes após T01, sem antecipar aprovação ou editar arquivos da implementação.","Atividades simultâneas não podem alterar o mesmo arquivo."],
+    "external":["Acesso aos repositórios para descrever projetos com precisão.","Domínio definitivo para canonical, sitemap e URLs sociais absolutas.","Conta e endpoint Formspree aprovados para habilitar envio real.","Confirmação do titular para datas, instituição e demais informações não fornecidas."]
+  },
+  "acceptance_criteria": [
+    "Todas as seções e serviços solicitados estão presentes e com identidade VALLIER.FLUX consistente.",
+    "Hero e contato utilizam os textos fornecidos e canais reais.",
+    "Projetos nunca exibem funcionalidades, resultados ou tecnologias sem fonte.",
+    "O site permanece utilizável com formulário não configurado e identifica essa limitação claramente.",
+    "Não existem botões decorativos com aparência de ação funcional nem links com href='#' sem destino real.",
+    "Menu mobile, navegação por teclado, foco, estados de interação e responsividade são aprovados.",
+    "Build distribuído contém conteúdo semântico pré-renderizado e metadados corretos.",
+    "Nenhum segredo ou dado enviado pelo formulário é exposto em código ou logs.",
+    "Instalação limpa, lint, tipagem, testes e build passam com evidências registradas.",
+    "Desvios de performance ou acessibilidade são documentados e precisam de aprovação, não de ocultação.",
+    "A entrega executável pode ocorrer com pendências externas explicitadas; publicação promovida como completa exige resolver a verificação dos projetos ou sinalizar publicamente os campos ainda indisponíveis."
+  ],
+  "agent_instructions": {
+    "openai_developer":["Implementar somente o escopo aprovado e manter a especificação como fonte central.","Priorizar identidade própria, legibilidade, performance e componentes reutilizáveis.","Consultar repositórios antes de redigir conteúdo técnico; manter fallback honesto se não houver acesso.","Não adicionar backend, banco, biblioteca de animação ou analytics sem justificativa aprovada.","Registrar comandos executados e resultados reais."],
+    "deepseek_reviewer":["Revisar arquitetura, legibilidade, tipagem, semântica, segurança e dependências.","Auditar especialmente conteúdo inventado, envio simulado, tratamento de erros e exposição de dados.","Apresentar achados reproduzíveis sem alterar unilateralmente contratos."],
+    "deepseek_logic":["Manter validações puras e consistentes entre interface e serviço.","Tratar configuração ausente como estado previsto.","Não confundir confirmação do provedor com garantia de recebimento final do e-mail.","Não inferir maturidade profissional ou funcionalidades a partir de nomes."],
+    "deepseek_qa":["Cobrir fluxo principal, casos extremos, acessibilidade e estados de indisponibilidade.","Não enviar mensagens reais em testes automatizados.","Distinguir mocks, homologação real e comportamento apenas inspecionado.","Verificar todos os links e viewports definidos."],
+    "openai_corrector":["Corrigir achados com mudança mínima e teste de regressão.","Respeitar bloqueio temporário de arquivos e propriedade dos demais agentes.","Não mascarar defeitos removendo testes ou avisos de configuração."],
+    "openai_validator":["Executar validação independente a partir de checkout limpo.","Confrontar entrega, especificação, fontes e evidências.","Reprovar falsa confirmação de envio ou afirmações profissionais fabricadas.","Informar explicitamente limitações de ferramentas, rede, credenciais e testes não executados."]
+  },
+  "integration_strategy": [
+    "Versionar esta especificação em docs/project-spec.json antes das implementações paralelas.",
+    "Utilizar branch por tarefa e pull requests com identificação de requisitos e arquivos alterados.",
+    "Congelar contratos públicos após T01; mudanças exigem revisão arquitetural.",
+    "Integrar primeiro contratos, depois conteúdo e regras, em seguida componentes e publicação.",
+    "Executar check:content, lint, typecheck, testes e build em cada pull request.",
+    "Servir o build de produção para E2E e Lighthouse, não usar o servidor de desenvolvimento como evidência final de performance.",
+    "Não depender de GitHub ou Formspree para renderizar o conteúdo principal.",
+    "Promover deploy de preview antes do domínio público e verificar cabeçalhos, links e hidratação.",
+    "Habilitar o formulário somente após configuração do provedor e teste real autorizado.",
+    "Registrar no relatório final commit validado, ambiente, comandos, resultados, pendências e estado do endpoint."
+  ],
+  "risks": [
+    {"id":"R01","risk":"Repositórios indisponíveis ou com documentação insuficiente.","mitigation":"Inspecionar código e manifestos quando acessíveis; manter campos desconhecidos e aviso explícito em vez de inventar."},
+    {"id":"R02","risk":"Informações acadêmicas e profissionais incompletas.","mitigation":"Usar apenas fatos recebidos e omitir datas, cargo e instituição até confirmação."},
+    {"id":"R03","risk":"Formulário depender de serviço externo, limites, política de privacidade e configuração de destinatário.","mitigation":"Manter e-mail e redes funcionais, explicar estado de configuração e testar respostas de falha."},
+    {"id":"R04","risk":"Glow, transparência e roxo reduzirem contraste ou performance.","mitigation":"Restringir efeitos a decoração, medir contraste e limitar áreas com filtros."},
+    {"id":"R05","risk":"Pré-renderização gerar divergências de hidratação.","mitigation":"Renderização determinística, APIs do navegador em efeitos e testes de console no build."},
+    {"id":"R06","risk":"Domínio ainda desconhecido produzir metadados incorretos.","mitigation":"Noindex em preview e emissão de canonical e sitemap somente com URL real validada."},
+    {"id":"R07","risk":"Listagem ampla de competências transmitir senioridade não declarada.","mitigation":"Linguagem de profissional em desenvolvimento, sem rankings, métricas ou afirmações de especialização."},
+    {"id":"R08","risk":"Scripts de verificação confundirem presença de dependência com funcionalidade implementada.","mitigation":"Exigir revisão humana e evidência concreta por afirmação antes de publicar detalhes."}
+  ],
+  "assumptions": [
+    "O idioma inicial é português brasileiro.",
+    "VALLIER FLUX é o nome oficial e VALLIER.FLUX sua apresentação tipográfica.",
+    "O símbolo definitivo é VF, substituindo YV.",
+    "A formação atual em Ciência de Dados e a experiência na Farmoquímica são informações declaradas pelo usuário, sem verificação independente nesta etapa.",
+    "Não há necessidade de autenticação, CMS ou banco para o escopo atual.",
+    "Formspree é a integração padrão proposta, não uma conta já existente ou configurada.",
+    "Sem endpoint autorizado, o formulário será claramente identificado como pendente e não enviará mensagens.",
+    "O conteúdo de projetos será mantido localmente e atualizado por revisão versionada.",
+    "Não foi fornecido domínio, currículo PDF, fotografia ou material de certificações; esses elementos não serão inventados.",
+    "A entrega atual é uma arquitetura executável por agentes, não a implementação final solicitada ao fluxo de desenvolvimento."
+  ],
+  "pending_questions": [
+    {"question":"Qual será o domínio público e a hospedagem definitiva?","blocking":false,"impact":"Necessário antes da indexação pública, canonical, sitemap e metadados absolutos."},
+    {"question":"Qual é a instituição, modalidade e período da formação atual em Ciência de Dados?","blocking":false,"impact":"Até confirmação, apresentar somente a formação atual declarada."},
+    {"question":"Quais são o cargo formal e o período da experiência na Farmoquímica?","blocking":false,"impact":"Até confirmação, não publicar cargo nem datas."},
+    {"question":"O uso do Formspree está aprovado e haverá conta, destinatário e endpoint configurados?","blocking":false,"impact":"Bloqueia apenas a ativação do envio real; o formulário pendente e os canais diretos continuam disponíveis."},
+    {"question":"Há restrições de divulgação, dados sensíveis ou informações privadas nos repositórios e exemplos profissionais?","blocking":false,"impact":"Qualquer material sensível deve ser excluído de textos, capturas e assets públicos."},
+    {"question":"Existem cursos, certificações ou demonstrações públicas adicionais com links verificáveis?","blocking":false,"impact":"Não serão incluídos até o fornecimento e a conferência das fontes."}
+  ],
+  "execution_status":"architecture_completed"
+}

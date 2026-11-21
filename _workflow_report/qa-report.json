@@ -1,0 +1,486 @@
+{
+  "qa_report": {
+    "project_id": "vallier-flux-portfolio",
+    "agent": "deepseek_qa",
+    "status": "completed",
+    "overall_result": "failed",
+    "summary": "Análise estática concluída. O projeto não está em condição de aprovação: o build referencia scripts ausentes, o lockfile não foi entregue, o formulário de contato e sua integração não existem, a suíte unitária/componentes está vazia, o favicon não está vinculado no HTML e há conflito entre a auditoria Lighthouse SEO e o preview noindex. Nenhum comando, teste, build, navegador ou envio real foi executado nesta análise.",
+    "requirements_coverage": [
+      {
+        "id": "RF-01",
+        "status": "partial",
+        "evidence": "Header, Hero e Footer contêm VALLIER.FLUX e slogan; public/favicon.svg existe, mas index.html não contém link rel=icon."
+      },
+      {
+        "id": "RF-02",
+        "status": "partial",
+        "evidence": "Navegação e âncoras existem em Header.tsx; compensação do header via scroll-padding-top em global.css. Não executado em navegador."
+      },
+      {
+        "id": "RF-03",
+        "status": "pass_static",
+        "evidence": "Hero.tsx contém nome, título e subtítulo exatos, CTAs e links sociais."
+      },
+      {
+        "id": "RF-04",
+        "status": "pass_static",
+        "evidence": "Hero.tsx contém terminal abstrato com aria-hidden e sem ilustração genérica de pessoas."
+      },
+      {
+        "id": "RF-05",
+        "status": "pass_static",
+        "evidence": "profile.ts descreve Farmoquímica, atividades administrativas, Python, Pandas, OpenPyXL, planilhas e indicadores sem números inventados."
+      },
+      {
+        "id": "RF-06",
+        "status": "pass_static",
+        "evidence": "skills.ts contém as seis categorias exigidas, sem percentuais."
+      },
+      {
+        "id": "RF-07",
+        "status": "partial",
+        "evidence": "projects.ts contém DataForge e AutomatedDataPipeline com links reais e estado pending; repositórios não foram consultados."
+      },
+      {
+        "id": "RF-08",
+        "status": "pass_static",
+        "evidence": "services.ts contém os dez serviços solicitados."
+      },
+      {
+        "id": "RF-09",
+        "status": "pass_static",
+        "evidence": "profile.ts contém timeline com Farmoquímica e formação atual em Ciência de Dados, sem cargo, instituição ou datas inventadas."
+      },
+      {
+        "id": "RF-10",
+        "status": "fail",
+        "evidence": "src/App.tsx contém apenas seção provisória de contato, sem formulário, validação ou feedback acessível; ContactForm.tsx e Contact.tsx não existem."
+      },
+      {
+        "id": "RF-11",
+        "status": "partial",
+        "evidence": "Conteúdo tipado em src/content/*.ts e src/types/content.ts; falta validação executável de conteúdo."
+      },
+      {
+        "id": "RF-12",
+        "status": "fail",
+        "evidence": "package-lock.json, scripts/check-content.ts e scripts/prerender.ts não foram entregues; README e validation-report declaram ausência de execução."
+      },
+      {
+        "id": "RNF-01",
+        "status": "unverified",
+        "evidence": "CSS responsivo presente, mas nenhum viewport foi executado."
+      },
+      {
+        "id": "RNF-02",
+        "status": "partial",
+        "evidence": "Há foco visível e labels previstos em CSS, mas a suíte axe filtra apenas impactos serious/critical e não foi executada."
+      },
+      {
+        "id": "RNF-03",
+        "status": "partial",
+        "evidence": "global.css e useReveal.ts tratam prefers-reduced-motion; não executado."
+      },
+      {
+        "id": "RNF-04",
+        "status": "fail_risk",
+        "evidence": "lighthouserc.json exige SEO >= 0.95, mas o CI força VITE_SITE_URL vazio e o preview deve ser noindex."
+      },
+      {
+        "id": "RNF-05",
+        "status": "unverified",
+        "evidence": "Sem medição de bundle; não há biblioteca de animação declarada."
+      },
+      {
+        "id": "RNF-06",
+        "status": "partial",
+        "evidence": "tsconfig.json usa strict; compilação não foi executada e faltam módulos referenciados pelo build."
+      },
+      {
+        "id": "RNF-07",
+        "status": "fail",
+        "evidence": "scripts/prerender.ts não existe; index.html contém #root vazio e meta robots noindex fixo."
+      },
+      {
+        "id": "RNF-08",
+        "status": "fail_unverified",
+        "evidence": "netlify.toml e docs/privacy.md ausentes; HTTPS e cabeçalhos não verificados."
+      }
+    ],
+    "tests_analyzed": 9,
+    "tests_created": 4,
+    "tests_executed": 0,
+    "tests_not_executed": 13
+  },
+  "test_results": [
+    {
+      "test_id": "TEST-001",
+      "test_name": "navega pelas sete seções sem overflow horizontal",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/navigation.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "Todas as seções acessíveis por âncoras, sem overflow e sem erros de runtime/hidratação.",
+      "observed_result": "Não executado. Análise estática encontrou seções e navegação, mas não há evidência de execução.",
+      "evidence": "tests/e2e/navigation.spec.ts"
+    },
+    {
+      "test_id": "TEST-002",
+      "test_name": "menu mobile fecha com Escape e devolve o foco",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/navigation.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "Menu fecha com Escape e foco retorna ao botão.",
+      "observed_result": "Não executado. Header.tsx implementa listener de Escape e foco, mas não há execução real.",
+      "evidence": "tests/e2e/navigation.spec.ts; src/components/layout/Header.tsx"
+    },
+    {
+      "test_id": "TEST-003",
+      "test_name": "conteúdo continua disponível com movimento reduzido",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/navigation.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "Conteúdo visível com prefers-reduced-motion.",
+      "observed_result": "Não executado. global.css e useReveal.ts contêm tratamento, sem evidência de execução.",
+      "evidence": "tests/e2e/navigation.spec.ts; src/styles/global.css; src/hooks/useReveal.ts"
+    },
+    {
+      "test_id": "TEST-004",
+      "test_name": "formulário pendente mantém campos editáveis e não envia mensagens",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/contact.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "Formulário existe, campos editáveis, botão desabilitado e nenhuma requisição não-GET.",
+      "observed_result": "Não executado. Análise estática indica falha: src/App.tsx não renderiza form e o texto do placeholder não corresponde ao regex do teste.",
+      "evidence": "tests/e2e/contact.spec.ts; src/App.tsx"
+    },
+    {
+      "test_id": "TEST-005",
+      "test_name": "canais diretos apontam para os endereços informados",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/contact.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "mailto, GitHub e LinkedIn presentes e seguros.",
+      "observed_result": "Não executado. App.tsx contém os canais, mas falta validação em navegador.",
+      "evidence": "tests/e2e/contact.spec.ts; src/App.tsx"
+    },
+    {
+      "test_id": "TEST-006",
+      "test_name": "página e seções não apresentam violações serious ou critical",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/accessibility.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "Sem violações serious/critical nas seções.",
+      "observed_result": "Não executado. O filtro do teste ignora impactos moderate/minor, reduzindo a cobertura WCAG.",
+      "evidence": "tests/e2e/accessibility.spec.ts"
+    },
+    {
+      "test_id": "TEST-007",
+      "test_name": "menu mobile aberto não apresenta violações serious ou critical",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/accessibility.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "Menu aberto sem violações serious/critical.",
+      "observed_result": "Não executado. Mesmo filtro de impactos do TEST-006.",
+      "evidence": "tests/e2e/accessibility.spec.ts"
+    },
+    {
+      "test_id": "TEST-008",
+      "test_name": "HTML distribuído contém conteúdo antes da execução de JavaScript",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/seo.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "dist/index.html pré-renderizado com seções e marca.",
+      "observed_result": "Não executado. scripts/prerender.ts não existe; sem pré-renderização o build não gera conteúdo no HTML.",
+      "evidence": "tests/e2e/seo.spec.ts; package.json; src/App.tsx"
+    },
+    {
+      "test_id": "TEST-009",
+      "test_name": "preview sem domínio não publica canonical fictício",
+      "test_type": "e2e",
+      "description": "Teste existente em tests/e2e/seo.spec.ts.",
+      "execution_status": "not_executed",
+      "expected_result": "noindex, sem canonical, sem og:url e favicon vinculado.",
+      "observed_result": "Não executado. index.html tem noindex e não tem canonical, mas não possui link rel=icon.",
+      "evidence": "tests/e2e/seo.spec.ts; index.html"
+    },
+    {
+      "test_id": "TEST-010",
+      "test_name": "Header abre e fecha o menu mobile com Escape devolvendo o foco",
+      "test_type": "component",
+      "description": "Teste criado em tests/components/Header.test.tsx.",
+      "execution_status": "not_executed",
+      "expected_result": "aria-expanded alterna e Escape devolve foco ao botão.",
+      "observed_result": "Teste criado, não executado.",
+      "evidence": "tests/components/Header.test.tsx"
+    },
+    {
+      "test_id": "TEST-011",
+      "test_name": "Header renderiza links reais para todas as seções",
+      "test_type": "component",
+      "description": "Teste criado em tests/components/Header.test.tsx.",
+      "execution_status": "not_executed",
+      "expected_result": "Sete links com href correspondente.",
+      "observed_result": "Teste criado, não executado.",
+      "evidence": "tests/components/Header.test.tsx"
+    },
+    {
+      "test_id": "TEST-012",
+      "test_name": "ProjectCard exibe pendência e campos desconhecidos sem inventar conteúdo",
+      "test_type": "component",
+      "description": "Teste criado em tests/components/ProjectCard.test.tsx.",
+      "execution_status": "not_executed",
+      "expected_result": "Aviso de verificação pendente, campos desconhecidos explícitos e link real.",
+      "observed_result": "Teste criado, não executado.",
+      "evidence": "tests/components/ProjectCard.test.tsx"
+    },
+    {
+      "test_id": "TEST-013",
+      "test_name": "ProjectCard exibe tecnologias e funcionalidades quando verificadas",
+      "test_type": "component",
+      "description": "Teste criado em tests/components/ProjectCard.test.tsx.",
+      "execution_status": "not_executed",
+      "expected_result": "Tecnologias e funcionalidades revisadas renderizadas.",
+      "observed_result": "Teste criado, não executado.",
+      "evidence": "tests/components/ProjectCard.test.tsx"
+    }
+  ],
+  "bugs": [
+    {
+      "bug_id": "BUG-001",
+      "severity": "CRITICAL",
+      "category": "build",
+      "file_path": "package.json",
+      "affected_function": "scripts.build",
+      "reproduction_scenario": "Executar npm ci seguido de npm run build no projeto fornecido.",
+      "expected_behavior": "O build executa typecheck, validação de conteúdo, Vite e pré-renderização, gerando dist/index.html.",
+      "actual_behavior": "O script build referencia npm run check:content e tsx scripts/prerender.ts, mas scripts/check-content.ts e scripts/prerender.ts não existem no material fornecido. O build falha antes de gerar a entrega.",
+      "evidence": "package.json declara build como npm run typecheck && npm run check:content && vite build && tsx scripts/prerender.ts. Os arquivos scripts/check-content.ts e scripts/prerender.ts não constam na lista de arquivos.",
+      "suggested_fix": "Implementar scripts/check-content.ts e scripts/prerender.ts ou ajustar o build de forma revisada e aprovada. Não remover as verificações para mascarar a falha. O prerender deve gerar HTML semântico, metadados condicionais e falhar explicitamente em erro.",
+      "validation_criteria": [
+        "npm ci executa com lockfile válido.",
+        "npm run build conclui com código 0.",
+        "dist/index.html contém conteúdo semântico sem JavaScript.",
+        "Nenhuma chamada a Formspree ou GitHub ocorre durante o build."
+      ]
+    },
+    {
+      "bug_id": "BUG-002",
+      "severity": "CRITICAL",
+      "category": "dependencies",
+      "file_path": "package-lock.json",
+      "affected_function": "npm ci",
+      "reproduction_scenario": "Executar npm ci na raiz do projeto conforme README.md.",
+      "expected_behavior": "Instalação reproduzível com package-lock.json compatível.",
+      "actual_behavior": "package-lock.json não foi entregue; npm ci não pode ser executado de forma reproduzível.",
+      "evidence": "README.md orienta npm ci; package.json fixa versões diretas, mas package-lock.json não consta na lista de arquivos.",
+      "suggested_fix": "Gerar o lockfile em ambiente compatível com .nvmrc, instalar e validar as dependências, revisar alterações e versionar package-lock.json.",
+      "validation_criteria": [
+        "package-lock.json existe e está versionado.",
+        "npm ci conclui sem erro.",
+        "npm run typecheck e npm run build usam as mesmas versões instaladas."
+      ]
+    },
+    {
+      "bug_id": "BUG-003",
+      "severity": "HIGH",
+      "category": "functionality",
+      "file_path": "src/App.tsx",
+      "affected_function": "Seção de contato",
+      "reproduction_scenario": "Abrir a seção #contato e tentar localizar um formulário com campos nome, e-mail e mensagem.",
+      "expected_behavior": "A seção deve conter formulário acessível, validação local, feedback com aria-live e estado unconfigured quando VITE_CONTACT_ENDPOINT estiver vazio, sem simular envio.",
+      "actual_behavior": "App.tsx renderiza apenas uma seção provisória com canais diretos e texto informando que o formulário não está disponível. Não existe form, campos, labels, validação ou feedback de envio.",
+      "evidence": "src/App.tsx contém comentário de substituição por T06 e bloco temporário. tests/e2e/contact.spec.ts espera form e botão de envio; ContactForm.tsx e Contact.tsx não constam na lista de arquivos.",
+      "suggested_fix": "Criar Contact.tsx, Contact.module.css, ContactForm.tsx, ContactForm.module.css e docs/privacy.md. Integrar no App, consumir tipos de src/types/contact.ts e tratar endpoint nulo como unconfigured. Não enviar requisições quando não configurado.",
+      "validation_criteria": [
+        "Formulário existe na seção #contato.",
+        "Campos têm labels, autoComplete e associação de erros por aria-describedby.",
+        "Botão de envio fica desabilitado quando o endpoint é nulo.",
+        "Nenhuma requisição POST é feita no estado unconfigured.",
+        "Feedback assíncrono usa região aria-live.",
+        "tests/e2e/contact.spec.ts compatível com a implementação."
+      ]
+    },
+    {
+      "bug_id": "BUG-004",
+      "severity": "HIGH",
+      "category": "seo",
+      "file_path": "index.html",
+      "affected_function": "Metadados do documento",
+      "reproduction_scenario": "Inspecionar o HTML distribuído e executar tests/e2e/seo.spec.ts.",
+      "expected_behavior": "HTML deve conter favicon VF vinculado, Open Graph com imagem social, Twitter Card e metadados condicionais de canonical/robots no prerender.",
+      "actual_behavior": "index.html não contém link rel=icon, não contém og:image nem Twitter Card. O meta robots está fixo como noindex e não há mecanismo de prerender para emitir canonical/og:url quando houver domínio.",
+      "evidence": "index.html contém og:type, og:locale, og:site_name, og:title e og:description, mas não contém link rel=icon, og:image, twitter:card ou marcação dinâmica para prerender. public/favicon.svg existe.",
+      "suggested_fix": "Adicionar link rel=icon para /favicon.svg. Implementar og:image com fallback para /og-cover.png ou /favicon.svg quando a capa não existir. Adicionar Twitter Card. No prerender, emitir canonical e og:url somente com VITE_SITE_URL HTTPS válida.",
+      "validation_criteria": [
+        "index.html referencia /favicon.svg.",
+        "og:image é emitido sem caminho 404.",
+        "Twitter Card está presente.",
+        "Preview sem domínio permanece noindex sem canonical.",
+        "Build com domínio válido emite canonical e og:url absolutos."
+      ]
+    },
+    {
+      "bug_id": "BUG-005",
+      "severity": "HIGH",
+      "category": "testing",
+      "file_path": "vitest.config.ts",
+      "affected_function": "npm test",
+      "reproduction_scenario": "Executar npm test no material fornecido.",
+      "expected_behavior": "Vitest encontra testes unitários e de componentes e executa a suíte.",
+      "actual_behavior": "vitest.config.ts inclui apenas tests/unit/**/*.test.ts e tests/components/**/*.test.tsx, mas nenhum desses arquivos consta na lista. Com passWithNoTests false, npm test falha por ausência de testes.",
+      "evidence": "vitest.config.ts define include para tests/unit e tests/components e passWithNoTests: false. A lista de arquivos fornecida não contém testes nesses caminhos.",
+      "suggested_fix": "Criar testes unitários e de componentes previstos. Este relatório cria dois arquivos de componentes; ainda faltam testes de contactValidation, contentValidation, contactService, check-content e prerender.",
+      "validation_criteria": [
+        "tests/unit e tests/components contêm arquivos executáveis.",
+        "npm test conclui com sucesso.",
+        "A suíte cobre estados unconfigured, sucesso, erro, 429, timeout e preservação de campos."
+      ]
+    },
+    {
+      "bug_id": "BUG-006",
+      "severity": "HIGH",
+      "category": "ci",
+      "file_path": "lighthouserc.json",
+      "affected_function": "audit:lighthouse",
+      "reproduction_scenario": "Executar o job lighthouse do CI com VITE_SITE_URL vazio, como definido em .github/workflows/ci.yml.",
+      "expected_behavior": "A auditoria deve distinguir preview noindex de produção indexável sem falhar por comportamento correto de preview.",
+      "actual_behavior": "lighthouserc.json exige categories:seo >= 0.95, enquanto o CI força VITE_SITE_URL vazio e tests/e2e/seo.spec.ts exige meta robots noindex. O Lighthouse tende a penalizar noindex na auditoria is-crawlable.",
+      "evidence": "lighthouserc.json exige SEO 0.95. .github/workflows/ci.yml define VITE_SITE_URL e VITE_CONTACT_ENDPOINT vazios. tests/e2e/seo.spec.ts exige noindex e ausência de canonical.",
+      "suggested_fix": "Separar a auditoria de preview da auditoria de produção. No preview, não exigir SEO 0.95 ou documentar exceção restrita e aprovada. Em release/tag com domínio real, exigir SEO 0.95 e canonical correto.",
+      "validation_criteria": [
+        "Preview continua noindex e sem canonical.",
+        "Job de preview não falha por SEO esperado.",
+        "Job de produção valida SEO 0.95 com domínio real.",
+        "A decisão está documentada."
+      ]
+    },
+    {
+      "bug_id": "BUG-007",
+      "severity": "HIGH",
+      "category": "accessibility_testing",
+      "file_path": "tests/e2e/accessibility.spec.ts",
+      "affected_function": "Asserções axe",
+      "reproduction_scenario": "Executar axe com tags WCAG 2.2 AA em página que contenha violação de impacto moderate ou minor.",
+      "expected_behavior": "Todas as violações das regras WCAG selecionadas devem reprovar a suíte, salvo exceções explícitas e justificadas.",
+      "actual_behavior": "As asserções filtram violations para manter apenas impactos serious e critical, descartando moderate e minor.",
+      "evidence": "tests/e2e/accessibility.spec.ts usa filter em ['serious','critical'] nas asserções.",
+      "suggested_fix": "Submeter todas as violações dos tags selecionados à asserção ou criar exceções explícitas por regra. Complementar com inspeção manual de foco, teclado e contraste.",
+      "validation_criteria": [
+        "Violações moderate/minor das regras WCAG selecionadas reprovam a suíte.",
+        "Exceções, se houver, estão documentadas por regra.",
+        "Teste permanece estável nos três navegadores."
+      ]
+    },
+    {
+      "bug_id": "BUG-008",
+      "severity": "MEDIUM",
+      "category": "security_hosting",
+      "file_path": "netlify.toml",
+      "affected_function": "Cabeçalhos de segurança da hospedagem",
+      "reproduction_scenario": "Publicar o build em Netlify e inspecionar cabeçalhos HTTP.",
+      "expected_behavior": "Resposta deve conter CSP, Referrer-Policy, X-Content-Type-Options, frame-ancestors none e X-Robots-Tag noindex em preview.",
+      "actual_behavior": "netlify.toml não foi entregue; não há configuração de CSP, referrer policy, nosniff, frame-ancestors ou noindex de preview.",
+      "evidence": "netlify.toml não consta na lista de arquivos. docs/project-spec.json exige cabeçalhos de segurança.",
+      "suggested_fix": "Criar netlify.toml com build e publish, CSP restritiva, Referrer-Policy, X-Content-Type-Options, Permissions-Policy e X-Robots-Tag noindex para deploy preview/branch deploy. HSTS apenas após domínio e HTTPS confirmados.",
+      "validation_criteria": [
+        "netlify.toml existe e é válido.",
+        "CSP contém connect-src self e Formspree quando necessário.",
+        "Preview recebe X-Robots-Tag noindex.",
+        "Nenhum unsafe-eval é usado."
+      ]
+    },
+    {
+      "bug_id": "BUG-009",
+      "severity": "MEDIUM",
+      "category": "privacy",
+      "file_path": "docs/privacy.md",
+      "affected_function": "Aviso de privacidade do contato",
+      "reproduction_scenario": "Inspecionar a documentação e a seção de contato antes de habilitar o formulário.",
+      "expected_behavior": "Deve existir aviso informando coleta de nome, e-mail e mensagem, processamento pelo Formspree, finalidade, retenção e canal alternativo.",
+      "actual_behavior": "docs/privacy.md não foi entregue e a seção de contato não apresenta aviso de privacidade vinculado ao formulário.",
+      "evidence": "docs/privacy.md não consta na lista de arquivos. src/App.tsx contém apenas aviso de indisponibilidade do formulário.",
+      "suggested_fix": "Criar docs/privacy.md e vincular o aviso antes do envio. Não afirmar ausência de terceiros. Incluir e-mail direto como alternativa.",
+      "validation_criteria": [
+        "docs/privacy.md descreve dados, finalidade, terceiros, retenção e canal alternativo.",
+        "O formulário exibe ou referencia o aviso antes do envio.",
+        "Nenhum dado pessoal é registrado em logs."
+      ]
+    }
+  ],
+  "security_findings": [
+    {
+      "id": "SEC-001",
+      "severity": "MEDIUM",
+      "description": "netlify.toml ausente; não há CSP, Referrer-Policy, X-Content-Type-Options, frame-ancestors nem noindex de preview configurados para o deployment."
+    },
+    {
+      "id": "SEC-002",
+      "severity": "INFO",
+      "description": ".env.example alerta corretamente que variáveis VITE_ são públicas e não devem conter segredos. Nenhum segredo foi encontrado nos arquivos revisados."
+    },
+    {
+      "id": "SEC-003",
+      "severity": "INFO",
+      "description": "scripts/verify-projects.ts restringe repositórios, limita respostas e não renderiza conteúdo remoto como HTML. Não foi encontrado dangerouslySetInnerHTML nos arquivos revisados."
+    }
+  ],
+  "performance_findings": [
+    {
+      "id": "PERF-001",
+      "severity": "MEDIUM",
+      "description": "Nenhuma medição de Lighthouse ou tamanho de bundle foi executada. lighthouserc.json contém meta SEO incompatível com o preview noindex do CI."
+    },
+    {
+      "id": "PERF-002",
+      "severity": "INFO",
+      "description": "Não há biblioteca de animação declarada; as interações usam CSS transitions e useReveal com API nativa."
+    }
+  ],
+  "missing_test_coverage": [
+    "tests/unit/contactValidation.test.ts ausente.",
+    "tests/unit/contentValidation.test.ts ausente.",
+    "tests/unit/contactService.test.ts ausente.",
+    "tests/unit/prerender.test.ts ausente.",
+    "tests/components/ContactForm.test.tsx ausente.",
+    "Cobertura de branches não configurada no Vitest.",
+    "Testes E2E de contato esperam formulário que não existe.",
+    "Testes de acessibilidade filtram impactos moderate e minor."
+  ],
+  "unverified_aspects": [
+    "npm ci, lint, typecheck, testes, build, preview e Lighthouse não foram executados.",
+    "Não foi possível verificar compilação TypeScript real dos componentes e testes.",
+    "Não foi verificado comportamento em Chromium, Firefox ou WebKit.",
+    "Não foram verificados viewports de 320, 390, 768, 1024 e 1440 px.",
+    "Não foram verificados foco, teclado, contraste, zoom e leitores de tela.",
+    "Não foi verificada hidratação com HTML pré-renderizado.",
+    "Não foi verificado envio real ou homologação do Formspree.",
+    "Não foram consultados os repositórios DataForge e AutomatedDataPipeline.",
+    "Não foram verificados HTTPS, CSP, HSTS e cabeçalhos de hospedagem.",
+    "Risco potencial: Header mobile depende de display:none e não usa inert; não foi executado em navegador.",
+    "Risco potencial: Services.tsx pode quebrar se iconId de conteúdo divergir do mapa de ícones; o tipo atual reduz o risco, mas não há fallback explícito."
+  ],
+  "blockers": [
+    "Parse errors e ausência de saída do deepseek_logic em T02, T03, T04, T06, T08 e T10; arquivos de lógica, validação e serviço de contato não foram entregues.",
+    "scripts/check-content.ts e scripts/prerender.ts ausentes; build e pré-renderização não podem ser concluídos.",
+    "package-lock.json ausente; instalação reproduzível com npm ci não é possível.",
+    "src/lib/contactValidation.ts, src/lib/contentValidation.ts e src/services/contact.ts ausentes.",
+    "src/components/contact/ContactForm.tsx, src/components/sections/Contact.tsx e docs/privacy.md ausentes.",
+    "netlify.toml, public/og-cover.png, fonte local e licença OFL ausentes.",
+    "Nenhuma evidência de execução de instalação, build, testes, E2E, acessibilidade ou Lighthouse."
+  ],
+  "handoff": {
+    "next_agent": "openai_corrector",
+    "correction_required": true,
+    "priority_bugs": [
+      "BUG-001",
+      "BUG-002",
+      "BUG-003",
+      "BUG-004",
+      "BUG-005",
+      "BUG-006",
+      "BUG-007",
+      "BUG-008",
+      "BUG-009"
+    ]
+  }
+}

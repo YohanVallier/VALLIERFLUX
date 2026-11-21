@@ -1,0 +1,67 @@
+{
+  "parse_errors": [
+    {
+      "agent": "deepseek_reviewer",
+      "task_id": "T01",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": "{\n  \"review\": {\n    \"review_id\": \"REV-T01-vallier-flux-portfolio-001\",\n    \"project_id\": \"vallier-flux-portfolio\",\n    \"review_status\": \"completed\",\n    \"overall_quality\": \"fair\",\n    \"summary\": \"A entrega de T01 é honesta quanto ao status parcial e preserva os contratos arquiteturais. Porém, a tarefa não foi concluída: o package-lock.json obrigatório está ausente, a instalação limpa, tipagem, lint e validação do JSON não foram executados, e o arquivo index.html contém metadados e comentários qu"
+    },
+    {
+      "agent": "deepseek_reviewer",
+      "task_id": "T02",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": "{\n  \"review\": {\n    \"review_id\": \"REV-vallier-flux-t02-20240001\",\n    \"project_id\": \"vallier-flux-portfolio\",\n    \"review_status\": \"completed\",\n    \"overall_quality\": \"fair\",\n    \"summary\": \"A entrega T02 cumpre substancialmente os requisitos de fidelidade de conteúdo: nenhuma tecnologia, funcionalidade, cargo, data ou instituição foi inventada; os textos do Hero e contato foram preservados; os dez serviços e seis categorias estão presentes; os dois projetos permanecem explicitamente pendentes c"
+    },
+    {
+      "agent": "deepseek_logic",
+      "task_id": "T02",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": ""
+    },
+    {
+      "agent": "deepseek_logic",
+      "task_id": "T03",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": ""
+    },
+    {
+      "agent": "deepseek_reviewer",
+      "task_id": "T04",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": "{\n  \"review\": {\n    \"review_id\": \"REV-vallier-flux-portfolio-T04-001\",\n    \"project_id\": \"vallier-flux-portfolio\",\n    \"review_status\": \"completed\",\n    \"overall_quality\": \"regular\",\n    \"summary\": \"A entrega T04 implementa primitivas React tipadas e tokens CSS com boa disciplina semântica e acessibilidade defensiva. O desenvolvedor registrou honestamente as pendências (fonte, capa social, conjunto completo de ícones) e não fabricou binários. Contudo, há desvios arquiteturais relevantes: o asset"
+    },
+    {
+      "agent": "deepseek_logic",
+      "task_id": "T04",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": ""
+    },
+    {
+      "agent": "deepseek_logic",
+      "task_id": "T05",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": "{\n  \"logic_engineering\": {\n    \"project_id\": \"vallier-flux-portfolio\",\n    \"task_id\": \"T05\",\n    \"agent\": \"deepseek_logic\",\n    \"status\": \"completed\",\n    \"problem_analysis\": \"O revisor identificou nove achados na entrega de T05. Dos quatro prioritários, REV-002 (services.jsx quebra se iconId divergir) e REV-003 (foco após navegação depende de seletor implícito) pertencem parcialmente ao meu escopo: faltam (a) um contrato canônico de iconIds e de headingId por SectionId, (b) validação de build q"
+    },
+    {
+      "agent": "deepseek_logic",
+      "task_id": "T06",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": ""
+    },
+    {
+      "agent": "deepseek_logic",
+      "task_id": "T08",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": "{\n  \"logic_engineering\": {\n    \"project_id\": \"vallier-flux-portfolio\",\n    \"task_id\": \"T08\",\n    \"agent\": \"deepseek_logic\",\n    \"status\": \"completed\",\n    \"problem_analysis\": \"A revisão REV-T08-001 declarou 7 arquivos de teste ausentes e bloqueou a promoção de T08 porque os mód"
+    },
+    {
+      "agent": "deepseek_logic",
+      "task_id": "T10",
+      "error": "JSON inválido ou truncado",
+      "raw_excerpt": ""
+    }
+  ],
+  "qa_parse_error": null,
+  "correction_parse_error": null,
+  "file_conflicts": []
+}

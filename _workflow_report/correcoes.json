@@ -1,0 +1,450 @@
+{
+  "applied": true,
+  "report": {
+    "project_id": "vallier-flux-portfolio",
+    "agent": "openai_corrector",
+    "status": "partial",
+    "summary": "Correções localizadas propostas para navegação, foco, testes de acessibilidade, seleção de cenários E2E, CI, ícones de serviços e metadados estáticos. Permanecem bloqueios críticos: lockfile, validadores, serviço de contato, formulário e scripts de build não foram disponibilizados. Não foram reconstruídos módulos ausentes nem alterados contratos ou critérios arquiteturais. Nenhum comando foi executado.",
+    "issues_received": 64,
+    "issues_corrected": 8,
+    "issues_unresolved": 56
+  },
+  "corrections": [
+    {
+      "issue_id": "T05/REV-001",
+      "source": "deepseek_reviewer",
+      "severity": "HIGH",
+      "file_path": "src/components/layout/Header.tsx",
+      "root_cause": "O fechamento mobile era representado exclusivamente pelo CSS. Entretanto, display:none já remove os links da navegação por teclado e da árvore de acessibilidade; o relato de defeito atual não foi comprovado.",
+      "correction_description": "Adicionada proteção complementar com inert somente no menu mobile fechado. O estado desktop é sincronizado com o mesmo breakpoint do CSS. aria-controls é omitido quando o componente identifica o modo desktop. Preservados HTML inicial determinístico e navegação desktop.",
+      "resolution_status": "corrected",
+      "validation_criteria": [
+        "Menu mobile fechado possui inert.",
+        "Abrir o menu remove inert.",
+        "Em desktop, a navegação não possui inert.",
+        "Validar Tab e Shift+Tab em navegador real."
+      ]
+    },
+    {
+      "issue_id": "T05/REV-003",
+      "source": "deepseek_reviewer",
+      "severity": "MEDIUM",
+      "file_path": "src/components/layout/Header.tsx",
+      "root_cause": "O fechamento por navegação só transferia foco quando encontrava um título dentro da seção.",
+      "correction_description": "O destino de foco passa a ser o título, a própria seção, o main ou, em último caso, o botão de menu. A transferência ocorre antes do fechamento.",
+      "resolution_status": "corrected",
+      "validation_criteria": [
+        "Uma seção sem heading recebe foco após a seleção do link.",
+        "Escape continua devolvendo foco ao botão.",
+        "Links preservam seus destinos nativos."
+      ]
+    },
+    {
+      "issue_id": "T08/REV-007",
+      "source": "deepseek_reviewer",
+      "severity": "MEDIUM",
+      "file_path": "tests/e2e/navigation.spec.ts",
+      "root_cause": "A seleção dos testes mobile dependia da visibilidade observada durante a execução.",
+      "correction_description": "Os testes exclusivos de menu mobile usam a largura configurada do projeto. Aplicado o breakpoint real de 72rem, equivalente a 1152px na configuração padrão, em vez dos 768px sugeridos no relatório.",
+      "resolution_status": "corrected",
+      "validation_criteria": [
+        "Projetos de 320, 390, 768 e 1024px exercitam o menu mobile.",
+        "Somente projetos de 1440px ignoram o cenário mobile.",
+        "Um menu inesperadamente invisível em largura mobile provoca falha, não skip."
+      ]
+    },
+    {
+      "issue_id": "T08/REV-009",
+      "source": "deepseek_reviewer",
+      "severity": "MEDIUM",
+      "file_path": "tests/setup.ts",
+      "root_cause": "A finalidade do mock global de fetch e a convenção de sobrescrita não estavam documentadas.",
+      "correction_description": "Documentada a barreira contra rede real e a convenção de vi.stubGlobal por teste. Preservados limpeza e bloqueio padrão. A suíte ausente do serviço continua registrada separadamente.",
+      "resolution_status": "corrected",
+      "validation_criteria": [
+        "Testes de HTTP substituem fetch por implementações inteiramente locais.",
+        "O setup não restaura acesso à rede durante um teste.",
+        "Mocks e ambientes são limpos após cada teste."
+      ]
+    },
+    {
+      "issue_id": "T08/REV-010",
+      "source": "deepseek_reviewer",
+      "severity": "MEDIUM",
+      "file_path": "tests/e2e/seo.spec.ts",
+      "root_cause": "A suíte sempre exigia metadados de preview, independentemente da configuração usada no build.",
+      "correction_description": "Separados os cenários de preview e domínio HTTPS configurado, selecionados pela variável de ambiente do processo de testes. A suíte de produção exige canonical, og:url e ausência de noindex.",
+      "resolution_status": "corrected",
+      "validation_criteria": [
+        "Build e processo Playwright recebem o mesmo VITE_SITE_URL.",
+        "Sem domínio, exigir noindex e ausência de canonical e og:url.",
+        "Com domínio HTTPS válido, exigir canonical e og:url correspondentes."
+      ]
+    },
+    {
+      "issue_id": "T08/REV-011",
+      "source": "deepseek_reviewer",
+      "severity": "LOW",
+      "file_path": ".github/workflows/ci.yml",
+      "root_cause": "Jobs dispendiosos de navegador e Lighthouse não dependiam das verificações estáticas; o timeout do preview era de 30 segundos.",
+      "correction_description": "Adicionada dependência de static-and-unit aos jobs de navegador e Lighthouse. Elevado o timeout do servidor Playwright para 60 segundos. Não foram removidos gates existentes.",
+      "resolution_status": "corrected",
+      "validation_criteria": [
+        "browser-tests e lighthouse só iniciam após static-and-unit.",
+        "Playwright aguarda até 60000ms pelo preview.",
+        "Falhas críticas existentes continuam visíveis."
+      ]
+    },
+    {
+      "issue_id": "T09/REV-002",
+      "source": "deepseek_reviewer",
+      "severity": "HIGH",
+      "file_path": "tests/e2e/accessibility.spec.ts",
+      "root_cause": "O filtro por impacto descartava violações moderate e minor das regras WCAG selecionadas.",
+      "correction_description": "Todas as violações retornadas pelos tags selecionados passam a reprovar a suíte, sem exceções implícitas.",
+      "resolution_status": "corrected",
+      "validation_criteria": [
+        "As asserções verificam violations integralmente.",
+        "Violações moderate ou minor não são descartadas.",
+        "A inspeção manual continua necessária."
+      ]
+    },
+    {
+      "issue_id": "BUG-007",
+      "source": "deepseek_qa",
+      "severity": "HIGH",
+      "file_path": "tests/e2e/accessibility.spec.ts",
+      "root_cause": "Mesmo defeito descrito em T09/REV-002.",
+      "correction_description": "Removida a filtragem de impactos das três asserções axe.",
+      "resolution_status": "corrected",
+      "validation_criteria": [
+        "Qualquer violação das regras WCAG selecionadas reprova o teste."
+      ]
+    },
+    {
+      "issue_id": "T05/REV-002",
+      "source": "deepseek_reviewer",
+      "severity": "HIGH",
+      "file_path": "src/components/sections/Services.tsx",
+      "root_cause": "O tipo atual restringe iconId, mas o componente não possuía fallback defensivo para conteúdo inválido em runtime.",
+      "correction_description": "Mapa verificado estaticamente contra os identificadores do conteúdo e fallback Lucide explícito. A detecção por check:content permanece pendente porque o script e o validador não foram disponibilizados.",
+      "resolution_status": "partially_corrected",
+      "validation_criteria": [
+        "Identificador desconhecido não impede a renderização do serviço.",
+        "O mapa cobre todos os identificadores tipados atuais.",
+        "Integrar posteriormente a validação de conteúdo."
+      ]
+    },
+    {
+      "issue_id": "BUG-004",
+      "source": "deepseek_qa",
+      "severity": "HIGH",
+      "file_path": "index.html",
+      "root_cause": "O template não vinculava o favicon existente nem declarava Twitter Card ou imagem social.",
+      "correction_description": "Vinculado o favicon VF e adicionados metadados sociais com fallback SVG existente. Mantidos noindex e ausência de domínio fictício. A capa PNG e a emissão condicional de metadados absolutos continuam pendentes.",
+      "resolution_status": "partially_corrected",
+      "validation_criteria": [
+        "Favicon aponta para /favicon.svg.",
+        "O fallback social referencia um arquivo fornecido.",
+        "Validar suporte dos consumidores sociais ao SVG.",
+        "Concluir pré-renderização e capa PNG antes da aprovação integral."
+      ]
+    },
+    {
+      "issue_id": "T08/REV-008",
+      "source": "deepseek_reviewer",
+      "severity": "MEDIUM",
+      "file_path": "tests/e2e/contact.spec.ts",
+      "root_cause": "O registro de tentativas de envio estava acoplado exclusivamente ao route handler.",
+      "correction_description": "O listener request registra requisições não idempotentes independentemente do route handler, que continua abortando essas requisições. O teste isolado do handler de ContactForm permanece pendente por ausência do componente.",
+      "resolution_status": "partially_corrected",
+      "validation_criteria": [
+        "Listener instalado antes de page.goto.",
+        "Métodos não idempotentes são registrados e abortados.",
+        "Automação não envia mensagens reais."
+      ]
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "issue_id": "BUG-001",
+      "reason": "CRITICAL: scripts/check-content.ts e scripts/prerender.ts não foram fornecidos. O build continua incompleto.",
+      "required_action": "Orquestrador deve recuperar as saídas integrais de T03 e T07 ou encaminhar a implementação aos proprietários. Integrar e testar sem remover etapas do build."
+    },
+    {
+      "issue_id": "BUG-002",
+      "reason": "CRITICAL: lockfile não fornecido e não há ferramenta de instalação disponível nesta interação.",
+      "required_action": "Integrador deve gerar package-lock.json com Node/npm fixados, revisar, versionar e executar npm ci em checkout limpo. Não fabricar dependências transitivas."
+    },
+    {
+      "issue_id": "T07/REV-001",
+      "reason": "CRITICAL: pré-renderização ausente no material.",
+      "required_action": "Fornecer implementação de scripts/prerender.ts e evidências de HTML sem JavaScript, configuração determinística e ausência de rede durante renderização."
+    },
+    {
+      "issue_id": "T08/REV-001",
+      "reason": "CRITICAL: testes dos validadores, serviço e pré-renderização dependem de implementações não disponibilizadas.",
+      "required_action": "deepseek_logic e responsável por publicação devem fornecer módulos reais; deepseek_qa deve criar os testes pelos contratos efetivos."
+    },
+    {
+      "issue_id": "T08/REV-002",
+      "reason": "CRITICAL: Header e ProjectCard já possuem testes fornecidos, contrariando parte do diagnóstico histórico; ContactForm e seu teste continuam ausentes.",
+      "required_action": "Preservar os testes existentes, completar estados de ProjectCard e implementar testes do formulário após receber seu código."
+    },
+    {
+      "issue_id": "BUG-003",
+      "reason": "Formulário e integração não disponibilizados; o placeholder não satisfaz RF-10.",
+      "required_action": "Reabrir T03/T06 para entrega do formulário, validação, serviço, CSS Modules e integração em App, mantendo envio desabilitado sem configuração aprovada."
+    },
+    {
+      "issue_id": "BUG-004",
+      "reason": "Correção parcial: favicon e metadados estáticos adicionados; capa PNG, URLs absolutas e metadados condicionais continuam ausentes.",
+      "required_action": "Concluir T04/T07 e verificar os metadados do build e a compatibilidade da imagem social."
+    },
+    {
+      "issue_id": "BUG-005",
+      "reason": "A premissa de suíte totalmente vazia está superada pelos testes de Header e ProjectCard fornecidos, mas faltam testes essenciais e execução real.",
+      "required_action": "Executar npm test após instalação limpa e completar testes de lógica, contato e pré-renderização."
+    },
+    {
+      "issue_id": "BUG-006",
+      "reason": "Há conflito real entre preview noindex e meta Lighthouse SEO. Alterar a meta é mudança de critério sujeita à aprovação arquitetural.",
+      "required_action": "architecture_owner deve aprovar separação de auditoria de preview e produção; QA implementa a estratégia sem remover noindex nem inventar domínio."
+    },
+    {
+      "issue_id": "BUG-008",
+      "reason": "Configuração de hospedagem não disponibilizada.",
+      "required_action": "Responsável por publicação deve entregar netlify.toml válido e verificar cabeçalhos no deployment. Não presumir suporte a headers por contexto sem conferir a plataforma."
+    },
+    {
+      "issue_id": "BUG-009",
+      "reason": "Aviso de privacidade não disponibilizado.",
+      "required_action": "Responsável por T06 deve entregar docs/privacy.md e aviso visível no formulário, sem inventar base legal ou prazo de retenção."
+    },
+    {
+      "issue_id": "T03/REV-001",
+      "reason": "O dispatcher n8n não foi disponibilizado e a especificação já atribui T03 corretamente a deepseek_logic.",
+      "required_action": "Orquestrador deve corrigir o roteamento fora do frontend. Não alterar a arquitetura para mascarar erro do dispatcher."
+    },
+    {
+      "issue_id": "T03/REV-002",
+      "reason": "Os exports reais agora estão disponíveis, mas alterar contratos centrais exige aprovação arquitetural.",
+      "required_action": "architecture_owner deve ratificar os exports existentes; deepseek_logic implementa a orquestração de check-content reutilizando o validador."
+    },
+    {
+      "issue_id": "T03/REV-003",
+      "reason": "Decisão de reencaminhamento ou transferência não foi fornecida.",
+      "required_action": "Coordenação deve registrar a decisão versionada com referência a T03/REV-001."
+    },
+    {
+      "issue_id": "T05/REV-002",
+      "reason": "Fallback de renderização corrigido; detecção pelo check:content continua pendente.",
+      "required_action": "Integrar validação dos identificadores no módulo de conteúdo quando sua implementação estiver disponível."
+    },
+    {
+      "issue_id": "T05/REV-004",
+      "reason": "Há oportunidades de refinamento no observer, mas a alegação de quebra SSR por useEffect não é comprovada: efeitos não executam na renderização de servidor.",
+      "required_action": "QA deve reproduzir recriação por arrays instáveis e offset incorreto antes de refinar o hook. Evitar substituir 80px por parseFloat de rem sem conversão de unidade."
+    },
+    {
+      "issue_id": "T05/REV-005",
+      "reason": "useRef<T>(null) tem inferência compatível com RefObject<T | null> no React 19; não foi demonstrada incompatibilidade. Falta teste de cancelamento.",
+      "required_action": "Executar typecheck e adicionar teste de cancelamento da animação no unmount sem casts desnecessários."
+    },
+    {
+      "issue_id": "T05/REV-006",
+      "reason": "A detecção por hasChildNodes pode ser refinada quando houver saída real do prerender. try/catch não captura genericamente mismatches assíncronos de hidratação; React já possui recuperação.",
+      "required_action": "Fornecer HTML gerado e reproduzir divergências. Definir marcador determinístico ou detecção apropriada sem remount duplo nem logs com conteúdo pessoal."
+    },
+    {
+      "issue_id": "T05/REV-007",
+      "reason": "App ainda contém placeholder e estilos inline; sua substituição depende de Contact não disponibilizado.",
+      "required_action": "Integrar Contact com CSS Modules. Aviso estático deve estar semanticamente visível; aria-live não é obrigatório apenas por ser texto inicial."
+    },
+    {
+      "issue_id": "T05/REV-008",
+      "reason": "Não demonstrado como defeito: o pipeline decorativo IDEIA → CÓDIGO → SOLUÇÃO não declara resultado profissional realizado nem métrica.",
+      "required_action": "Revisor deve confirmar encerramento como recomendação editorial opcional, sem alteração desnecessária do Hero."
+    },
+    {
+      "issue_id": "T05/REV-009",
+      "reason": "Não há ferramentas de execução nesta interface. Testes existentes e atualizados não equivalem a evidência executada.",
+      "required_action": "QA deve executar lint, typecheck, componentes, E2E, teclado e viewports; registrar comandos e resultados reais."
+    },
+    {
+      "issue_id": "T06/REV-001",
+      "reason": "Arquivos finais de contato não disponibilizados.",
+      "required_action": "Reencaminhar T06 com dependências integrais e responsabilidade explícita para entregar todos os componentes e documentação."
+    },
+    {
+      "issue_id": "T06/REV-002",
+      "reason": "API interna do serviço não existe no material; declarar assinatura unilateral contrariaria o congelamento dos contratos.",
+      "required_action": "deepseek_logic e architecture_owner devem ratificar a interface consumida antes da integração."
+    },
+    {
+      "issue_id": "T06/REV-003",
+      "reason": "Placeholder continua presente e não atende T06; adicionar apenas TODO não corrigiria RF-10.",
+      "required_action": "Substituir o placeholder pelo componente real, mantendo id e associação do título."
+    },
+    {
+      "issue_id": "T06/REV-004",
+      "reason": "docs/privacy.md não foi disponibilizado.",
+      "required_action": "Entregar texto revisado sobre dados, finalidade, Formspree, retenção ainda a definir e canais alternativos."
+    },
+    {
+      "issue_id": "T06/REV-005",
+      "reason": "Workflow e mecanismo de propagação de arquivos não disponibilizados.",
+      "required_action": "Orquestrador deve anexar dependências reais à retomada de T06 e registrar responsável."
+    },
+    {
+      "issue_id": "T06/REV-006",
+      "reason": "src/types/contact.ts agora foi fornecido; a falha histórica de related_files não pode ser corrigida no frontend.",
+      "required_action": "Coordenação deve atualizar os insumos da tarefa sem recriar o contrato."
+    },
+    {
+      "issue_id": "T07/REV-002",
+      "reason": "netlify.toml não disponibilizado.",
+      "required_action": "Entregar configuração real de publicação e segurança. Validar mecanismos suportados para noindex em previews; HSTS depende de confirmação externa."
+    },
+    {
+      "issue_id": "T07/REV-003",
+      "reason": "Template corrigido parcialmente. O título exato sugerido no finding não é o título obrigatório definido no contexto central; preservado o título já aprovado no conteúdo.",
+      "required_action": "Concluir metadados condicionais por prerender e confirmar com arquitetura qualquer alteração do título central."
+    },
+    {
+      "issue_id": "T07/REV-004",
+      "reason": "Fallback SVG estático adicionado, mas não existe coletor de build para detectar PNG e emitir aviso; SVG não garante preview social.",
+      "required_action": "Entregar capa PNG verdadeira e tratamento de assets no prerender."
+    },
+    {
+      "issue_id": "T07/REV-005",
+      "reason": "Sem implementação do prerender não se comprova necessidade de alterar vite.config.ts; Vite pode carregar App por ssrLoadModule com a configuração atual.",
+      "required_action": "Implementador deve escolher e testar integração Vite SSR sem mudanças especulativas."
+    },
+    {
+      "issue_id": "T07/REV-006",
+      "reason": "main.tsx já usa hydrateRoot quando há conteúdo e createRoot quando vazio; a alegação histórica de ausência não corresponde ao código fornecido.",
+      "required_action": "Validar hidratação contra HTML efetivamente pré-renderizado e encerrar ou reproduzir o finding."
+    },
+    {
+      "issue_id": "T08/REV-003",
+      "reason": "Provider de cobertura não declarado e adição de dependência exige aprovação arquitetural; módulos-alvo ausentes.",
+      "required_action": "Aprovar @vitest/coverage-v8 compatível, instalar com lockfile e configurar cobertura por arquivo após integrar os testes."
+    },
+    {
+      "issue_id": "T08/REV-004",
+      "reason": "Mesma pendência de estratégia Lighthouse descrita em BUG-006.",
+      "required_action": "Obter decisão arquitetural documentada e implementar auditoria de produção com domínio real."
+    },
+    {
+      "issue_id": "T08/REV-005",
+      "reason": "Finding não reproduzido: todos os scripts citados já existem no package.json fornecido.",
+      "required_action": "Revisor deve encerrar a alegação de script npm inexistente; tratar arquivos-alvo ausentes em BUG-001, sem substituir por consultas GitHub na CI."
+    },
+    {
+      "issue_id": "T08/REV-006",
+      "reason": "Autoria histórica e roteamento do workflow não podem ser ratificados por alteração de implementação.",
+      "required_action": "Coordenação deve confirmar ownership de QA e registrar a transferência, se aplicável."
+    },
+    {
+      "issue_id": "T08/REV-008",
+      "reason": "Listener independente adicionado; teste do handler com endpoint nulo depende de ContactForm ausente.",
+      "required_action": "Criar teste de componente após receber a implementação; não tentar alterar import.meta.env por addInitScript."
+    },
+    {
+      "issue_id": "T09/REV-001",
+      "reason": "Reclassificação editorial do parecer não foi aplicada: lacuna de revisão não prova defeito, mas também não autoriza publicação integral.",
+      "required_action": "Revisor deve distinguir achados técnicos de evidência ausente sem enfraquecer os gates de validação."
+    },
+    {
+      "issue_id": "T09/REV-003",
+      "reason": "Conflito Lighthouse/noindex continua dependendo de estratégia aprovada.",
+      "required_action": "architecture_owner deve decidir a separação entre medição de preview e produção."
+    },
+    {
+      "issue_id": "T09/REV-004",
+      "reason": "Refinamento editorial do relatório não foi priorizado sobre correções funcionais e críticas.",
+      "required_action": "Revisor deve adicionar sumário tabular e atualizar o documento com esta rodada."
+    },
+    {
+      "issue_id": "T09/REV-005",
+      "reason": "Orquestração e classificação histórica da pré-revisão não foram disponibilizadas.",
+      "required_action": "Coordenação deve registrar a entrega anterior como parcial e fornecer os insumos integrais ao revisor."
+    },
+    {
+      "issue_id": "T10/REV-001",
+      "reason": "Parte técnica agora corrigida, mas permanecem bloqueios de implementação, execução e decisão arquitetural. Não é seguro propor diffs contra módulos desconhecidos.",
+      "required_action": "Orquestrador deve atender às solicitações por módulo registradas neste relatório e devolver o checkout completo para regressão."
+    },
+    {
+      "issue_id": "T10/REV-002",
+      "reason": "O relatório original agora foi recebido, eliminando a lacuna de interpretação desta rodada, mas não há como comprovar quais insumos chegaram à execução histórica.",
+      "required_action": "Coordenação deve preservar snapshots dos payloads por execução e correlacioná-los aos findings."
+    },
+    {
+      "issue_id": "T10/REV-003",
+      "reason": "Há recomendações contraditórias: alguns reviews exigem aprovação arquitetural e outro a dispensa. A especificação exige aprovação para mudanças de critérios.",
+      "required_action": "architecture_owner deve ratificar a estratégia Lighthouse. Não reduzir a meta SEO unilateralmente."
+    },
+    {
+      "issue_id": "T10/REV-004",
+      "reason": "Não foi disponibilizado canal para solicitar ou registrar bloqueio exclusivo de edição no workflow.",
+      "required_action": "Orquestrador deve garantir exclusividade para os arquivos retornados antes de aplicar os conteúdos. Nenhuma mudança em contratos centrais foi proposta."
+    },
+    {
+      "issue_id": "T10/REV-005",
+      "reason": "Esta interface não disponibiliza ferramentas de terminal, filesystem, rede ou navegador; não é possível executar ls, npm ou testes.",
+      "required_action": "Validador deve executar os comandos em ambiente real. Não tratar ausência de ferramenta como comando executado com erro."
+    },
+    {
+      "issue_id": "T10/REV-006",
+      "reason": "O formato obrigatório desta etapa determina handoff ao openai_validator, enquanto o finding histórico recomenda outro destino.",
+      "required_action": "openai_validator deve coordenar regressão com deepseek_qa e encaminhar os bloqueios aos proprietários, sem aprovar publicação."
+    },
+    {
+      "issue_id": "T11/REV-001",
+      "reason": "Exemplos documentais de Project não foram adicionados; não se deve criar exemplo verified com evidência fictícia.",
+      "required_action": "Responsável documental deve adicionar exemplo claramente didático em pending, unicidade e estabilidade de id e explicação dos avisos de verificação."
+    },
+    {
+      "issue_id": "T11/REV-002",
+      "reason": "Documentação do fluxo de contribuição permanece incompleta.",
+      "required_action": "Adicionar branch por tarefa, PR, referência ao workflow, ownership e exigência de checks aprovados."
+    },
+    {
+      "issue_id": "T11/REV-003",
+      "reason": "Procedimento de incidente não foi aplicado. Endpoint é público por natureza; sua presença no histórico não exige automaticamente reescrita destrutiva.",
+      "required_action": "Documentar resposta proporcional: revogar ou substituir no provedor em caso de abuso, republicar e coordenar eventual limpeza de histórico quando houver segredos ou dados pessoais reais."
+    },
+    {
+      "issue_id": "T11/REV-004",
+      "reason": "A tabela já afirma que os scripts foram confirmados no manifesto. Não existe comando listado apenas por expectativa arquitetural no material atual.",
+      "required_action": "Revisor deve encerrar ou delimitar o refinamento editorial, preservando a distinção entre declaração e execução."
+    },
+    {
+      "issue_id": "T12/REV-001",
+      "reason": "SHA do candidato e ambiente não foram fornecidos. Hash do próprio documento dentro dele criaria autorreferência inadequada.",
+      "required_action": "Validador deve registrar SHA do candidato e versão da especificação; hash do relatório deve ficar em manifesto externo ou artefato da CI."
+    },
+    {
+      "issue_id": "T12/REV-002",
+      "reason": "Checklist do parecer não foi atualizado nesta rodada de implementação.",
+      "required_action": "Validador deve correlacionar cada item a RF/RNF, arquivo, passo manual e evidência, esclarecendo que NV não significa defeito."
+    },
+    {
+      "issue_id": "T12/REV-003",
+      "reason": "O relatório histórico descreve o contexto anterior; não deve ser reescrito como se a nova leitura tivesse ocorrido naquela validação.",
+      "required_action": "Emitir nova rodada com lista de entradas lidas, incluindo docs/review.md integral e mapeamento achado-correção-teste."
+    },
+    {
+      "issue_id": "T12/REV-004",
+      "reason": "O parecer já qualifica a insuficiência de evidências; sua revisão pertence à próxima validação independente.",
+      "required_action": "Validador deve diferenciar explicitamente ausência de aprovação de defeitos demonstrados, sem transformar pendências em aprovação."
+    },
+    {
+      "issue_id": "T12/REV-005",
+      "reason": "Inventário histórico não foi substituído pelo inventário desta solicitação.",
+      "required_action": "Na revalidação, registrar por arquivo conteúdo lido, declarado não lido, não fornecido e presença efetivamente verificada no checkout."
+    }
+  ]
+}

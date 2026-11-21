@@ -1,0 +1,6 @@
+.footer { padding-block: var(--space-10); border-top: 1px solid var(--color-border); background: var(--color-surface); }
+.inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-6); }
+.brand { color: var(--color-text); font-family: var(--font-heading); font-weight: 700; font-size: var(--text-lg); text-decoration: none; }
+.slogan { margin-top: var(--space-2); color: var(--color-primary-light); font: var(--text-xs)/1.6 var(--font-mono); letter-spacing: .1em; }
+.owner { margin: 0; color: var(--color-muted); font-size: var(--text-sm); }
+.back { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--target-size); font-size: var(--text-sm); }

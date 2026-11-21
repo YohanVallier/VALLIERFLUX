@@ -1,0 +1,32 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--target-size);
+  height: var(--target-size);
+  flex-shrink: 0;
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: color var(--duration-fast), background-color var(--duration-fast), border-color var(--duration-fast);
+}
+
+@media (hover: hover) {
+  .link:hover {
+    border-color: var(--color-primary-light);
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+  }
+}
+
+.link:active {
+  border-color: var(--color-text);
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
+@media (forced-colors: active) {
+  .link { border-color: LinkText; }
+}
