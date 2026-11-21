@@ -7,7 +7,7 @@ function resolveValidSiteUrl(raw: string | undefined): string | null {
   if (!trimmed) return null;
   try {
     const parsed = new URL(trimmed);
-    if (parsed.protocol !== 'https:'\) return null;
+    if (parsed.protocol !== 'https:') return null;
     return parsed.origin;
   } catch {
     return null;
