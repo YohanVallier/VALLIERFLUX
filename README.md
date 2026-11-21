@@ -2,16 +2,6 @@
 
 **CODE. DATA. AUTOMATION.**
 
-## Prévia do portfólio
-
-### Página inicial
-
-![Página inicial do portfólio VALLIER.FLUX](assets/portfolio-home.png)
-
-### Habilidades
-
-![Seção de habilidades do portfólio VALLIER.FLUX](assets/portfolio-skills.png)
-
 Portfólio profissional de **Yohan Vallier**, com foco em Ciência de Dados, Automação e Desenvolvimento Full Stack. A identidade utiliza preto e roxo, composição tecnológica e conteúdo profissional sem métricas ou qualificações presumidas.
 
 ## Estado desta documentação
