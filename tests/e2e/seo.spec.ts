@@ -28,9 +28,9 @@ test('HTML distribuído contém conteúdo antes da execução de JavaScript', as
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
       'Transformando ideias em soluções digitais inteligentes.',
     );
-    await expect(page.locator('header')).toContainText('VALLIER.FLUX');
-    await expect(page.locator('footer')).toContainText('VALLIER.FLUX');
-    await expect(page.locator('footer')).toContainText('CODE. DATA. AUTOMATION.');
+    await expect(page.getByRole('banner')).toContainText('VALLIER.FLUX');
+    await expect(page.getByRole('contentinfo')).toContainText('VALLIER.FLUX');
+    await expect(page.getByRole('contentinfo')).toContainText('CODE. DATA. AUTOMATION.');
     await expect(page.locator('main')).toHaveCount(1);
     for (const id of ['inicio', 'sobre', 'habilidades', 'projetos', 'servicos', 'experiencia', 'contato']) {
       await expect(page.locator(`section#${id}`)).toHaveCount(1);
