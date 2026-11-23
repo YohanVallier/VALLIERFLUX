@@ -15,6 +15,7 @@ export default tseslint.config(
       'test-results/**',
       'blob-report/**',
       '.lighthouseci/**',
+      'artifacts/**',
     ],
   },
   js.configs.recommended,

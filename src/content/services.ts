@@ -43,7 +43,7 @@ export const services: ServiceContent[] = [
     id: 'n8n-workflows',
     title: 'Automação de workflows com n8n',
     description:
-      'Fluxos para conectar etapas e ferramentas de trabalho a partir das integrações disponíveis.',
+      'Criação de fluxos automatizados no n8n para conectar ferramentas, integrar APIs e webhooks e reduzir tarefas operacionais repetitivas.',
     iconId: 'workflow',
   },
   {
@@ -100,13 +100,6 @@ export const services: ServiceContent[] = [
     description:
       'Desenvolvimento de aplicações mobile com foco em usabilidade, interfaces funcionais e integração com APIs e serviços digitais.',
   },
-  {
-    id: 'automacoes-n8n',
-    iconId: 'workflow',
-    title: 'Automações com n8n',
-    description:
-      'Criação de fluxos automatizados no n8n para conectar ferramentas, integrar APIs e webhooks e reduzir tarefas operacionais repetitivas.',
-  },
 ];
 
 export const servicesEvidence: Evidence[] = [
@@ -116,6 +109,6 @@ export const servicesEvidence: Evidence[] = [
     commitSha: null,
     checkedAt: null,
     notes:
-      'Os dez serviços foram solicitados pelo titular. Descrições delimitam possibilidades de trabalho, não comprovam projetos anteriores nem prometem resultados, prazos ou especialização.',
+      'Serviços definidos pelo titular. Descrições delimitam possibilidades de trabalho, sem promessas de resultados ou prazos fixos.',
   },
 ];

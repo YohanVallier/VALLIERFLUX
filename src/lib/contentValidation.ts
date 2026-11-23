@@ -1,5 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
+import fs from 'node:fs';
+import path from 'node:path';
 
 export interface ContentValidationIssue {
   file: string;
@@ -11,47 +11,47 @@ export function validateProjectContent(rootDir: string = process.cwd()): {
   issues: ContentValidationIssue[];
 } {
   const issues: ContentValidationIssue[] = [];
-  const specPath = path.join(rootDir, "docs", "project-spec.json");
+  const specPath = path.join(rootDir, 'docs', 'project-spec.json');
 
   if (!fs.existsSync(specPath)) {
     issues.push({
-      file: "docs/project-spec.json",
-      message: "Arquivo de especificação docs/project-spec.json não encontrado.",
+      file: 'docs/project-spec.json',
+      message: 'Arquivo de especificação docs/project-spec.json não encontrado.',
     });
     return { ok: false, issues };
   }
 
   let parsed: Record<string, unknown>;
   try {
-    parsed = JSON.parse(fs.readFileSync(specPath, "utf-8"));
+    parsed = JSON.parse(fs.readFileSync(specPath, 'utf-8')) as Record<string, unknown>;
   } catch (err) {
     issues.push({
-      file: "docs/project-spec.json",
+      file: 'docs/project-spec.json',
       message: `JSON inválido: ${(err as Error).message}`,
     });
     return { ok: false, issues };
   }
 
   const rawText = JSON.stringify(parsed);
-  if (!rawText.includes("VALLIER.FLUX")) {
+  if (!rawText.includes('VALLIER.FLUX')) {
     issues.push({
-      file: "docs/project-spec.json",
-      message: "Identidade visual ausente ou inválida: esperado \"VALLIER.FLUX\".",
+      file: 'docs/project-spec.json',
+      message: 'Identidade visual ausente ou inválida: esperado "VALLIER.FLUX".',
     });
   }
 
-  if (!rawText.includes("\"VF\"") && !rawText.includes("VF")) {
+  if (!rawText.includes('"VF"') && !rawText.includes('VF')) {
     issues.push({
-      file: "docs/project-spec.json",
-      message: "Monograma ausente ou inválido: esperado \"VF\".",
+      file: 'docs/project-spec.json',
+      message: 'Monograma ausente ou inválido: esperado "VF".',
     });
   }
 
-  const privacyPath = path.join(rootDir, "docs", "privacy.md");
+  const privacyPath = path.join(rootDir, 'docs', 'privacy.md');
   if (!fs.existsSync(privacyPath)) {
     issues.push({
-      file: "docs/privacy.md",
-      message: "Documentação de privacidade docs/privacy.md não encontrada.",
+      file: 'docs/privacy.md',
+      message: 'Documentação de privacidade docs/privacy.md não encontrada.',
     });
   }
 
