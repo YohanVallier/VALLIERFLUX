@@ -3,7 +3,7 @@ import type { Project } from '../types/content';
 export const projectsContent = {
   title: 'Projetos em destaque',
   description:
-    'Repositórios indicados por Yohan Vallier. Os detalhes técnicos ainda aguardam consulta às fontes e revisão das evidências.',
+    'Repositórios de Ciência de Dados, Automação, Observabilidade e Desenvolvimento Web desenvolvidos por Yohan Vallier.',
   repositoryActionLabel: 'Acessar GitHub',
   unknownFieldLabel: 'Não informado nas fontes revisadas.',
 };
@@ -154,20 +154,41 @@ export const projects: Project[] = [
     id: 'vallier-flux',
     name: 'VALLIERFLUX',
     repositoryUrl: 'https://github.com/YohanVallier/VALLIERFLUX',
-    verificationStatus: 'pending',
-    summary: null,
-    problem: null,
-    technologies: [],
-    features: [],
-    technicalHighlight: null,
+    verificationStatus: 'verified',
+    summary:
+      'Portfólio profissional estático com identidade visual própria (VALLIER.FLUX), desenvolvido em React 19, TypeScript estrito, Vite 7 e CSS Modules, com pré-renderização SSR em tempo de build, acessibilidade WCAG 2.2 AA e pipeline automatizado de qualidade e deploy.',
+    problem:
+      'Centraliza a apresentação de projetos, habilidades, serviços e trajetória profissional em uma aplicação rápida, acessível e facilmente personalizável via conteúdo tipado local, sem depender de backend próprio ou banco de dados.',
+    technologies: [
+      'React 19',
+      'TypeScript',
+      'Vite 7',
+      'CSS Modules',
+      'Lucide React',
+      'Vitest',
+      'Testing Library',
+      'Playwright',
+      'axe-core',
+      'Lighthouse CI',
+      'GitHub Actions',
+    ],
+    features: [
+      'Pré-renderização estática (SSR no build via ReactDOMServer) com hidratação no cliente e emissão condicional de metadados SEO, canonical, robots.txt e sitemap.xml',
+      'Identidade visual escura (preto e roxo) baseada em design tokens CSS, layout responsivo a partir de 320 px e suporte a prefers-reduced-motion',
+      'Navegação acessível com menu mobile usando atributo inert, gerenciamento de foco via teclado e indicador progressivo de seção ativa',
+      'Formulário de contato validado com proteção honeypot, timeout de 15 s, integração opcional com Formspree e fallback seguro para canais diretos',
+      'Suíte de qualidade com validação de conteúdo, ESLint sem avisos, TypeScript estrito, Vitest, testes E2E/a11y com Playwright + axe-core e deploy contínuo no GitHub Pages',
+    ],
+    technicalHighlight:
+      'Conteúdo totalmente desacoplado e tipado em src/content/ com script de pré-renderização determinístico no build, cabeçalhos de segurança configurados (CSP, Referrer-Policy, frame-ancestors) e pipeline CI/CD completo no GitHub Actions.',
     evidence: [
       {
-        sourceType: 'user_context',
+        sourceType: 'repository',
         sourceUrl: 'https://github.com/YohanVallier/VALLIERFLUX',
         commitSha: null,
-        checkedAt: null,
+        checkedAt: '2026-11-23T10:43:00Z',
         notes:
-          'Nome e URL do repositório informados pelo titular; detalhes técnicos aguardam consulta e revisão.',
+          'Informações verificadas diretamente no código-fonte (package.json, src/, scripts/prerender.ts, tests/, netlify.toml e .github/workflows/).',
       },
     ],
   },

@@ -6,12 +6,14 @@ import { Skills } from './components/sections/Skills';
 import { Projects } from './components/sections/Projects';
 import { Services } from './components/sections/Services';
 import { Experience } from './components/sections/Experience';
-import { Contact } from "./components/contact/Contact";
+import { Contact } from './components/contact/Contact';
 
 export function App() {
   return (
     <>
-      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
+      <a className="skip-link" href="#conteudo">
+        Pular para o conteúdo
+      </a>
       <Header />
       <main id="conteudo" tabIndex={-1}>
         <Hero />
@@ -20,7 +22,6 @@ export function App() {
         <Projects />
         <Services />
         <Experience />
-        {/* T06 substituirá esta seção pela seção Contact com formulário integrado. */}
         <Contact />
       </main>
       <Footer />

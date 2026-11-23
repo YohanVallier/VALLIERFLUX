@@ -1,80 +1,96 @@
-import React from "react";
-import { ContactForm } from "./ContactForm";
+import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
+import { contact, siteConfig } from '../../content/site';
+import { Container } from '../ui/Container';
+import { SectionHeading } from '../ui/SectionHeading';
+import { ContactForm } from './ContactForm';
+import styles from './Contact.module.css';
 
 export interface ContactProps {
-  email?: string;
-  githubUrl?: string;
-  linkedinUrl?: string;
+  email?: string | undefined;
+  githubUrl?: string | undefined;
+  linkedinUrl?: string | undefined;
 }
 
-export const Contact: React.FC<ContactProps> = ({
-  email = "contato@vallierflux.dev",
-  githubUrl = "https://github.com/vallierflux",
-  linkedinUrl = "https://www.linkedin.com/in/vallierflux",
-}) => {
+export function Contact({
+  email = siteConfig.email,
+  githubUrl = siteConfig.github,
+  linkedinUrl = siteConfig.linkedin,
+}: ContactProps) {
   return (
-    <section
-      id="contato"
-      aria-labelledby="contato-heading"
-      className="mx-auto max-w-5xl px-6 py-20"
-    >
-      <div className="mb-10">
-        <p className="font-mono text-xs uppercase tracking-widest text-cyan-400">
-          // CONTATO
-        </p>
-        <h2 id="contato-heading" className="mt-2 text-3xl font-bold">
-          Iniciar conversa técnica
-        </h2>
-        <p className="mt-3 max-w-2xl text-sm text-slate-300">
-          Engenharia de software, pipelines de dados e automação operacional.
-          Envie os detalhes do escopo ou acione um canal direto.
-        </p>
-      </div>
+    <section id="contato" aria-labelledby="contato-heading" className={styles.section}>
+      <Container>
+        <SectionHeading
+          id="contato-heading"
+          eyebrow="06 / Contato"
+          title={contact.title}
+          description={contact.description}
+        />
 
-      <div className="grid gap-10 md:grid-cols-5">
-        <div className="md:col-span-3">
-          <ContactForm />
+        <div className={styles.grid}>
+          <div className={styles.formPanel}>
+            <ContactForm />
+          </div>
+
+          <aside className={styles.channels} aria-label="Canais diretos de contato">
+            <h3>Canais diretos</h3>
+            <p className={styles.channelsLead}>
+              Prefere falar diretamente? Utilize um dos canais oficiais abaixo.
+            </p>
+            <ul className={styles.channelList}>
+              <li>
+                <a href={`mailto:${email}`} className={styles.channelLink}>
+                  <span className={styles.channelIcon} aria-hidden="true">
+                    <Mail size={20} />
+                  </span>
+                  <span className={styles.channelMeta}>
+                    <span className={styles.channelLabel}>E-mail</span>
+                    <span className={styles.channelValue}>{email}</span>
+                  </span>
+                  <ArrowUpRight className={styles.channelArrow} size={18} aria-hidden="true" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.channelLink}
+                >
+                  <span className={styles.channelIcon} aria-hidden="true">
+                    <Github size={20} />
+                  </span>
+                  <span className={styles.channelMeta}>
+                    <span className={styles.channelLabel}>GitHub</span>
+                    <span className={styles.channelValue}>
+                      {githubUrl.replace(/^https?:\/\//, '')}
+                    </span>
+                  </span>
+                  <ArrowUpRight className={styles.channelArrow} size={18} aria-hidden="true" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.channelLink}
+                >
+                  <span className={styles.channelIcon} aria-hidden="true">
+                    <Linkedin size={20} />
+                  </span>
+                  <span className={styles.channelMeta}>
+                    <span className={styles.channelLabel}>LinkedIn</span>
+                    <span className={styles.channelValue}>
+                      {linkedinUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                    </span>
+                  </span>
+                  <ArrowUpRight className={styles.channelArrow} size={18} aria-hidden="true" />
+                </a>
+              </li>
+            </ul>
+          </aside>
         </div>
-
-        <aside className="space-y-4 rounded border border-slate-800 bg-slate-900/40 p-6 md:col-span-2">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-200">
-            Canais diretos
-          </h3>
-          <ul className="space-y-3 text-sm">
-            <li>
-              <span className="block text-xs text-slate-400">E-mail</span>
-              <a
-                href={`mailto:${email}`}
-                className="text-cyan-400 underline-offset-4 hover:underline"
-              >
-                {email}
-              </a>
-            </li>
-            <li>
-              <span className="block text-xs text-slate-400">GitHub</span>
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400 underline-offset-4 hover:underline"
-              >
-                {githubUrl.replace(/^https?:\/\//, "")}
-              </a>
-            </li>
-            <li>
-              <span className="block text-xs text-slate-400">LinkedIn</span>
-              <a
-                href={linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400 underline-offset-4 hover:underline"
-              >
-                {linkedinUrl.replace(/^https?:\/\//, "")}
-              </a>
-            </li>
-          </ul>
-        </aside>
-      </div>
+      </Container>
     </section>
   );
-};
+}

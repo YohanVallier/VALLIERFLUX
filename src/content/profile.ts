@@ -7,7 +7,7 @@ export const profileEvidence: Evidence[] = [
     commitSha: null,
     checkedAt: null,
     notes:
-      'Informações declaradas pelo titular: experiência na Farmoquímica em atividades administrativas e de produtividade, uso de Python, Pandas e OpenPyXL e formação atual em Ciência de Dados. Não foram informados cargo formal, períodos, instituição, modalidade ou certificações. Não houve verificação independente.',
+      'Informações declaradas pelo titular: experiência como Jovem Aprendiz na Farmoquímica (2022–2024) na área de Produtividade com Excel, Python, Pandas e OpenPyXL, e graduação em andamento em Ciência de Dados na UNINTER.',
   },
 ];
 
@@ -23,14 +23,13 @@ export const profile = {
   evidence: profileEvidence,
 };
 
-/** A ordem editorial não representa uma sequência cronológica. */
 export const timeline: TimelineEntry[] = [
   {
     id: 'farmoquimica',
     kind: 'work',
-    title: 'Experiência na área administrativa e de produtividade',
+    title: 'Jovem Aprendiz — Área Administrativa e de Produtividade',
     organization: 'Farmoquímica',
-    dateLabel: null,
+    dateLabel: '2022 – 2024',
     description: [
       'Atuei na Farmoquímica como Jovem Aprendiz, entre 2022 e 2024, na área de Produtividade, prestando suporte a atividades administrativas e operacionais. Durante esse período, trabalhei com organização, atualização, padronização e consolidação de planilhas no Excel, envolvendo informações de pagamentos, processos demissionais, transferências de setor, movimentações internas e controle de estoque e quantidades de medicamentos.',
       'Também tive contato com automação e análise de dados, utilizando Python, Pandas e OpenPyXL para desenvolver scripts que facilitavam a limpeza, o cruzamento e o processamento de informações, reduzindo tarefas manuais e contribuindo para a organização dos dados e dos indicadores internos.',
@@ -41,9 +40,9 @@ export const timeline: TimelineEntry[] = [
   {
     id: 'data-science-education',
     kind: 'education',
-    title: 'Formação atual em Ciência de Dados',
-    organization: null,
-    dateLabel: null,
+    title: 'Formação em Ciência de Dados',
+    organization: 'UNINTER',
+    dateLabel: 'Em andamento',
     description: [
       'Atualmente, estou cursando Ciência de Dados na UNINTER, desenvolvendo conhecimentos voltados à análise, processamento e interpretação de dados, estatística e utilização de tecnologias para transformar informações em insights relevantes.',
       'A formação está alinhada ao meu interesse por programação, análise de dados, automação e desenvolvimento de soluções tecnológicas. Busco ampliar minha capacidade de trabalhar com grandes volumes de informações, identificar padrões, construir análises e utilizar dados como suporte à tomada de decisões.',
@@ -55,5 +54,5 @@ export const timeline: TimelineEntry[] = [
 export const experienceContent = {
   title: 'Experiência e formação',
   description:
-    'Vivências profissionais e formação em desenvolvimento. Os itens são apresentados sem ordem cronológica, pois os períodos não foram informados.',
+    'Vivências profissionais e formação acadêmica em andamento, unindo prática administrativa, automação e Ciência de Dados.',
 };

@@ -19,9 +19,11 @@ playwright-report/
 test-results/
 blob-report/
 .lighthouseci/
+artifacts/
 
-# Temporary files and local logs
+# Temporary files, backups and local logs
 *.log
+*.bak
 npm-debug.log*
 .tmp/
 tmp/
