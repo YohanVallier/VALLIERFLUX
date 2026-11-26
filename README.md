@@ -1,110 +1,188 @@
+<a id="top"></a>
+
 <div align="center">
 
-<h1>VALLIER.FLUX — Professional Portfolio (React 19 + TypeScript + Vite 7)</h1>
+# 🌐 VALLIER.FLUX
 
-<p>
-  <img src="https://img.shields.io/badge/React-19-087EA4?style=for-the-badge&logo=react&logoColor=white" alt="React 19" />
-  <img src="https://img.shields.io/badge/TypeScript-5.9_Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 5.9 Strict" />
-  <img src="https://img.shields.io/badge/Vite-7_SSR_Prerender-7C3AED?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 7 SSR Prerender" />
-  <img src="https://img.shields.io/badge/CSS_Modules-Design_Tokens-EC4899?style=for-the-badge" alt="CSS Modules Design Tokens" />
-</p>
+### CODE. DATA. AUTOMATION.
 
-<p>
-  <img src="https://img.shields.io/badge/QA-Vitest_%2B_Playwright_%2B_axe-10B981?style=for-the-badge" alt="Vitest Playwright axe-core" />
-  <img src="https://img.shields.io/badge/Accessibility-WCAG_2.2_AA-8B5CF6?style=for-the-badge" alt="WCAG 2.2 AA" />
-  <img src="https://img.shields.io/badge/Deploy-GitHub_Pages_%2B_Netlify-F97316?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Pages and Netlify" />
-</p>
+<a href="#english">
+  <kbd>🇺🇸 English Version</kbd>
+</a>
+&nbsp;&nbsp;
+<a href="#portugues">
+  <kbd>🇧🇷 Versão em Português</kbd>
+</a>
+&nbsp;&nbsp;
+<a href="https://yohanvallier.github.io/VALLIERFLUX/">
+  <kbd>🚀 Live Portfolio</kbd>
+</a>
 
-<p><strong>CODE. DATA. AUTOMATION.</strong></p>
+<br/><br/>
 
-<p>
-  <strong>Language / Idioma:</strong>
-  <a href="#english">English</a> | <a href="#português-brasil">Português (Brasil)</a>
-</p>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3200&pause=900&color=8B5CF6&center=true&vCenter=true&width=780&lines=React+19+%2B+TypeScript+5.9+Strict+%2B+Vite+7+SSR+Prerender;100%25+Static+Portfolio+%C2%B7+Zero+Tracking+Cookies;WCAG+2.2+AA+%C2%B7+Vitest+%2B+Playwright+%2B+axe+%2B+Lighthouse+CI" alt="VALLIER.FLUX Highlights" />
+
+<br/>
+
+<kbd>⚛️ React 19</kbd>&nbsp;
+<kbd>🔷 TypeScript 5.9 Strict</kbd>&nbsp;
+<kbd>⚡ Vite 7 · SSR Prerender</kbd>&nbsp;
+<kbd>🎨 CSS Modules & Tokens</kbd>&nbsp;
+<kbd>♿ WCAG 2.2 AA</kbd>&nbsp;
+<kbd>🚀 GitHub Pages + Netlify</kbd>
+
+<br/><br/>
+
+<img src="https://skillicons.dev/icons?i=react,ts,vite,css,nodejs,vitest,githubactions,netlify&theme=dark" alt="VALLIER.FLUX Tech Stack" />
 
 </div>
 
 ---
 
-## English
+<a id="english"></a>
 
-### Overview
+## 🇺🇸 English Documentation
 
-**VALLIER.FLUX** is the professional portfolio of **Yohan Vallier**, focused on **Data Science, Automation, and Full Stack Development**. Built with a dark black-and-purple visual identity, strictly typed local content, build-time SSR prerendering, and an automated quality pipeline covering unit tests, cross-browser E2E flows, accessibility audits, and Lighthouse checks.
+> **CODE. DATA. AUTOMATION.** — The professional portfolio of **Yohan Vallier**, focused on **Data Science, Automation, and Full Stack Development**.
 
+**VALLIER.FLUX** is built with a custom dark black-and-purple visual identity (`#08060D` / `#8B5CF6`), strictly typed local content, build-time SSR prerendering, and an automated quality pipeline covering unit tests, cross-browser E2E flows, WCAG 2.2 AA accessibility audits, and Lighthouse checks.
+
+<div align="center">
+
+[Preview](#en-preview) · [Features](#en-features) · [Architecture & Build](#en-architecture) · [Setup & Scripts](#en-setup) · [Env Vars](#en-env) · [Structure & Customization](#en-structure) · [Contact & Tests](#en-tests) · [Deploy](#en-deploy)
+
+</div>
+
+> [!IMPORTANT]
 > **Architecture & Privacy Notice:** This application is **100% static** with no custom backend, database, or tracking cookies. All portfolio content lives in typed TypeScript modules (`src/content/`), `scripts/prerender.ts` outputs semantic HTML at build time, and the contact form remains safely disabled (`unconfigured` state) with direct channels active until a valid `VITE_CONTACT_ENDPOINT` (Formspree) is configured.
 
-### Interface Preview
+<a id="en-preview"></a>
 
-**Home (Hero)**
+### 🖼️ Interface Preview
 
-![VALLIER.FLUX portfolio home screen](docs/screenshots/hero-preview.jpg)
+<table>
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <strong>Home (Hero)</strong><br/><br/>
+      <img src="docs/screenshots/hero-preview.jpg" alt="VALLIER.FLUX portfolio home screen" width="100%" />
+    </td>
+    <td width="50%" align="center" valign="top">
+      <strong>Skills (Stack & Learning)</strong><br/><br/>
+      <img src="docs/screenshots/habilidades-preview.png" alt="VALLIER.FLUX portfolio skills section" width="100%" />
+    </td>
+  </tr>
+</table>
 
-**Skills (Stack & Learning)**
+<a id="en-features"></a>
 
-![VALLIER.FLUX portfolio skills section](docs/screenshots/habilidades-preview.png)
+### ✨ Key Features & Tech Stack
 
-### Key Features
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🎨 Custom Design System</h4>
+      <ul>
+        <li>Built with <strong>CSS Modules</strong> and CSS custom properties (<code>src/styles/tokens.css</code>).</li>
+        <li>Dark tech theme (<code>#08060D</code> / <code>#8B5CF6</code>) responsive from <code>320px</code> upward.</li>
+        <li>Full <code>prefers-reduced-motion</code> and keyboard focus support.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h4>📦 Typed Local Content</h4>
+      <ul>
+        <li>Profile, experience timeline, skills, services, and verified projects live in <code>src/content/</code>.</li>
+        <li>Zero external CMS or runtime API dependencies.</li>
+        <li>Automated content &amp; spec verification scripts.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>⚡ Build-Time SSR Prerendering</h4>
+      <ul>
+        <li><code>scripts/prerender.ts</code> injects semantic pre-rendered HTML into <code>dist/index.html</code>.</li>
+        <li>Conditionally emits <code>canonical</code>, <code>og:url</code>, <code>robots.txt</code>, and <code>sitemap.xml</code> when <code>VITE_SITE_URL</code> is set.</li>
+        <li>Defaults to <code>noindex, nofollow</code> on previews.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🛡️ Safe Contact &amp; Quality Gates</h4>
+      <ul>
+        <li>Pure validation, hidden CSS honeypot, 15s timeout, optional Formspree integration, and permanent direct channels (email, GitHub, LinkedIn).</li>
+        <li><strong>QA Suite:</strong> Strict TS, zero-warning ESLint, Prettier, Vitest + RTL, Playwright + <code>@axe-core/playwright</code> (WCAG 2.2 AA), and Lighthouse CI.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-- **Custom Design System**: Built with CSS Modules and CSS custom properties (`src/styles/tokens.css`), dark theme (`#08060D` / `#8B5CF6`), responsive layout from `320px` upward, and full `prefers-reduced-motion` support.
-- **Typed Local Content**: Profile, experience timeline, skills, services, and verified projects live in `src/content/` without external CMS or runtime API dependencies.
-- **Build-Time SSR Prerendering**: `scripts/prerender.ts` injects pre-rendered HTML into `dist/index.html` and conditionally emits `canonical`, `og:url`, `robots.txt`, and `sitemap.xml` when `VITE_SITE_URL` is configured (defaulting to `noindex, nofollow` on previews).
-- **Accessible & Safe Contact Flow**: Pure payload validation, hidden CSS honeypot field, 15-second request timeout, optional Formspree integration, and persistent direct channels (email, GitHub, LinkedIn).
-- **Automated Quality Gates**: Strict TypeScript, zero-warning ESLint, Prettier, Vitest + React Testing Library, Playwright + `@axe-core/playwright` (WCAG 2.2 AA), and Lighthouse CI.
+| Layer | Technologies |
+| --- | --- |
+| **Frontend** | `React 19` · `TypeScript 5.9 (strict)` · `Vite 7` · `CSS Modules` · `Lucide React` |
+| **Optional Contact** | `Formspree` (`POST` JSON over HTTPS) |
+| **Testing & Quality** | `Vitest` · `React Testing Library` · `Playwright` · `@axe-core/playwright` · `Lighthouse CI` · `ESLint` · `Prettier` |
+| **CI/CD & Hosting** | `GitHub Actions` (QA + GitHub Pages deploy) · `Netlify` (`netlify.toml`) |
 
-### Tech Stack
+<a id="en-architecture"></a>
 
-- **Frontend**: React 19, TypeScript (strict mode), Vite 7, CSS Modules, Lucide React.
-- **Optional Contact Integration**: Formspree (`POST` JSON over HTTPS).
-- **Testing & Quality**: Vitest, React Testing Library, Playwright, `@axe-core/playwright`, Lighthouse CI, ESLint, Prettier.
-- **CI/CD & Hosting**: GitHub Actions (quality checks + automated GitHub Pages deployment) and Netlify reference config (`netlify.toml`).
+### 🏗️ 5-Step Build & SSR Prerender Pipeline
 
-### Prerequisites
-
-- **Node.js**: version specified in `.nvmrc` (`22.14.0`, supported range `>=22.14.0 <23`).
-- **npm**: `10.9.2` (supported range `>=10.9.2 <11`).
-
-With `nvm` installed:
-
-```sh
-nvm install
-nvm use
-node --version
-npm --version
+```mermaid
+flowchart LR
+    S1["1. Typecheck<br/>tsc --noEmit"] --> S2["2. Content Check<br/>check:content"]
+    S2 --> S3["3. Client Bundle<br/>vite build → dist/"]
+    S3 --> S4["4. SSR Entry<br/>vite build --ssr → dist-ssr/"]
+    S4 --> S5["5. Prerender<br/>tsx scripts/prerender.ts"]
+    S5 --> OUT["Static Semantic HTML<br/>dist/index.html + SEO / Sitemap"]
+    OUT --> QA["Quality Gates<br/>Vitest · Playwright · axe · Lighthouse"]
+    QA --> DEP["Static Deploy<br/>GitHub Pages / Netlify"]
 ```
 
-### Installation & Development
+<a id="en-setup"></a>
 
-On first setup (to generate `package-lock.json` locally):
+### 🚀 Prerequisites, Installation & Build
+
+> [!NOTE]
+> **Runtime Requirements:** **Node.js** `22.14.0` (`.nvmrc`, supported `>=22.14.0 <23`) and **npm** `10.9.2` (`>=10.9.2 <11`).
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>💻 Local Development</h4>
 
 ```sh
+# Optional: align Node version via nvm
+nvm install && nvm use
+
+# First setup (generates package-lock.json)
+# Use `npm ci` once lockfile is committed
 npm install
 cp .env.example .env.local
 npm run dev
 ```
 
-Once `package-lock.json` is committed, use `npm ci` for reproducible installs. On Windows PowerShell, use `Copy-Item .env.example .env.local`. Keep environment variables empty initially and open `http://127.0.0.1:5173`.
-
-Never commit `.env.local`. Restart the dev server after changing environment variables.
-
-### Build & Preview
+*Runs at `http://127.0.0.1:5173`. On Windows PowerShell use `Copy-Item .env.example .env.local`. Never commit `.env.local` and restart Vite after editing env vars.*
+    </td>
+    <td width="50%" valign="top">
+      <h4>🏗️ Production Build &amp; Preview</h4>
 
 ```sh
+# Runs typecheck, content check,
+# client + SSR builds, and prerender
 npm run build
+
+# Serves dist/ on strict port 4173
 npm run preview
 ```
 
-The build pipeline executes five steps in sequence:
+*Local production preview is served at **`http://127.0.0.1:4173`**.*
+    </td>
+  </tr>
+</table>
 
-1. `npm run typecheck` — strict TypeScript check (`tsc --noEmit`);
-2. `npm run check:content` — validates specification integrity and required docs;
-3. `vite build` — generates the client bundle in `dist/`;
-4. `vite build --ssr src/entry-server.ts --outDir dist-ssr` — builds the SSR entry;
-5. `tsx scripts/prerender.ts` — pre-renders initial HTML and SEO metadata into `dist/index.html`.
+<details>
+<summary><strong>📜 View All 15 Available npm Scripts (Click to expand)</strong></summary>
 
-Local preview serves the production build at **http://127.0.0.1:4173** (strict port).
-
-### Available Scripts
+<br/>
 
 | Command | Purpose |
 | --- | --- |
@@ -124,22 +202,32 @@ Local preview serves the production build at **http://127.0.0.1:4173** (strict p
 | `npm run format:check` | Check Prettier formatting without modifying files. |
 | `npm run format` | Format project files with Prettier. |
 
-### Environment Variables
+</details>
+
+<a id="en-env"></a>
+
+### 🔐 Environment Variables
 
 Copy `.env.example` to `.env.local` for local development. For hosting or CI, configure the same variables in the build environment.
 
-| Variable | Description & Behavior |
+| Variable | Description &amp; Behavior |
 | --- | --- |
 | `VITE_BASE_PATH` | Application base path (default: `/`). Use `/VALLIERFLUX/` for GitHub Pages project deployments. |
 | `VITE_SITE_URL` | Final public HTTPS URL (e.g., `https://yourdomain.com`). When empty, builds stay `noindex, nofollow` with no `canonical`, `og:url`, or `sitemap.xml`. |
 | `VITE_CONTACT_ENDPOINT` | Optional public Formspree endpoint (`https://formspree.io/f/{id}`). When empty, inputs stay editable with a persistent notice and disabled submit button. |
 
+> [!WARNING]
 > **Security Note:** Every `VITE_` variable is embedded into the public client bundle. Never store GitHub tokens, passwords, private keys, or SMTP credentials in `VITE_` variables.
 
-### Project Structure
+<a id="en-structure"></a>
+
+### 📁 Project Structure & Content Customization
+
+<details>
+<summary><strong>📂 View Directory Tree &amp; Customization Map (Click to expand)</strong></summary>
 
 ```text
-.
+VALLIERFLUX/
 ├── .github/workflows/      # CI (quality) and CD (GitHub Pages deploy) pipelines
 ├── docs/                   # Architecture spec, design system, privacy policy, and screenshots
 ├── public/                 # Static public assets (favicon.svg)
@@ -156,8 +244,6 @@ Copy `.env.example` to `.env.local` for local development. For hosting or CI, co
 └── tests/                  # Unit, component, and E2E tests (Playwright + axe)
 ```
 
-### Content Customization
-
 | Content | File |
 | --- | --- |
 | Brand, slogan, hero copy, navigation, links, SEO | `src/content/site.ts` |
@@ -169,30 +255,33 @@ Copy `.env.example` to `.env.local` for local development. For hosting or CI, co
 | Global styles, focus states, accessibility | `src/styles/global.css` |
 | VF favicon | `public/favicon.svg` |
 
-**Featured Repositories:**
+**Internal Docs:** `docs/project-spec.json` (architecture & contracts) · `docs/design-system.md` (UI guidelines) · `docs/content-sources.md` (content provenance) · `docs/privacy.md` (contact privacy notice).
 
-- [DataForge](https://github.com/YohanVallier/DataForge)
-- [AutomatedDataPipeline](https://github.com/YohanVallier/AutomatedDataPipeline)
-- [BeaconOps](https://github.com/YohanVallier/BeaconOps)
-- [VALLIERFLUX](https://github.com/YohanVallier/VALLIERFLUX)
+</details>
 
-### Contact Form & Formspree
+**Featured Repositories:** [DataForge](https://github.com/YohanVallier/DataForge) · [AutomatedDataPipeline](https://github.com/YohanVallier/AutomatedDataPipeline) · [BeaconOps](https://github.com/YohanVallier/BeaconOps) · [VALLIERFLUX](https://github.com/YohanVallier/VALLIERFLUX)
 
-When `VITE_CONTACT_ENDPOINT` is empty, the form shows a persistent pending-configuration notice, keeps inputs editable, disables submission, and fires zero network requests while keeping email, GitHub, and LinkedIn active.
+<a id="en-tests"></a>
 
-To enable live submissions:
+### 🧪 Contact Form & Full Validation Suite
 
-1. Create a Formspree form in the target account and confirm the recipient address.
-2. Enable spam protection and rate limits in the Formspree dashboard.
-3. Review the privacy notice in `docs/privacy.md`.
-4. Set `VITE_CONTACT_ENDPOINT=https://formspree.io/f/{id}` in the build environment and rebuild.
-5. Run a controlled end-to-end verification before publishing to production.
-
-### Validation & Tests
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>✉️ Enabling Formspree</h4>
+      <p>When <code>VITE_CONTACT_ENDPOINT</code> is empty, the form stays editable with a persistent notice, disables submit, and fires zero network requests while direct links remain active.</p>
+      <ol>
+        <li>Create a Formspree form and confirm the recipient address.</li>
+        <li>Enable spam protection and rate limits in Formspree.</li>
+        <li>Review the privacy notice in <code>docs/privacy.md</code>.</li>
+        <li>Set <code>VITE_CONTACT_ENDPOINT=https://formspree.io/f/{id}</code> and rebuild.</li>
+        <li>Run a controlled end-to-end test before going live.</li>
+      </ol>
+    </td>
+    <td width="50%" valign="top">
+      <h4>✅ Full Quality Pipeline</h4>
 
 ```sh
-npm install
-cp .env.example .env.local
 npm run check:spec
 npm run check:content
 npm run lint
@@ -205,100 +294,181 @@ npm run test:e2e
 npm run test:a11y
 npm run audit:lighthouse
 ```
+    </td>
+  </tr>
+</table>
 
-### Deployment
+<a id="en-deploy"></a>
 
-- **GitHub Pages**: `.github/workflows/deploy.yml` builds and publishes `main` automatically with `VITE_BASE_PATH='/VALLIERFLUX/'`.
-- **Netlify**: `netlify.toml` configures `npm run build`, `dist/` publishing, security headers (`Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`), and `X-Robots-Tag: noindex, nofollow` on deploy previews.
+### ☁️ Deployment
 
-### Internal References
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🐙 GitHub Pages</h4>
+      <p><code>.github/workflows/deploy.yml</code> automatically builds and publishes <code>main</code> with <code>VITE_BASE_PATH='/VALLIERFLUX/'</code>.</p>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🌐 Netlify</h4>
+      <p><code>netlify.toml</code> configures <code>npm run build</code>, <code>dist/</code> publishing, strict security headers (<code>CSP</code>, <code>X-Frame-Options</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code>, <code>Permissions-Policy</code>), and <code>X-Robots-Tag: noindex, nofollow</code> on previews.</p>
+    </td>
+  </tr>
+</table>
 
-- `docs/project-spec.json` — architecture specification and contracts.
-- `docs/design-system.md` — visual system and UI guidelines.
-- `docs/content-sources.md` — content provenance and update workflow.
-- `docs/privacy.md` — contact form privacy notice.
+<div align="center">
+
+<br/>
+
+[⬆️ Back to top](#top) · [🇧🇷 Ir para a versão em Português](#portugues)
+
+</div>
 
 ---
 
-## Português (Brasil)
+<a id="portugues"></a>
 
-### Visão Geral
+## 🇧🇷 Documentação em Português
 
-**VALLIER.FLUX** é o portfólio profissional de **Yohan Vallier**, com foco em **Ciência de Dados, Automação e Desenvolvimento Full Stack**. Desenvolvido com identidade visual própria em preto e roxo, conteúdo local tipado, pré-renderização estática (SSR no build) e pipeline automatizado de qualidade com testes unitários, E2E multi-navegador, acessibilidade e Lighthouse.
+> **CODE. DATA. AUTOMATION.** — O portfólio profissional de **Yohan Vallier**, com foco em **Ciência de Dados, Automação e Desenvolvimento Full Stack**.
 
+O **VALLIER.FLUX** foi desenvolvido com identidade visual própria em preto e roxo (`#08060D` / `#8B5CF6`), conteúdo local estritamente tipado, pré-renderização estática (SSR no build) e um pipeline automatizado de qualidade cobrindo testes unitários, fluxos E2E multi-navegador, auditoria de acessibilidade WCAG 2.2 AA e Lighthouse CI.
+
+<div align="center">
+
+[Prévia](#pt-preview) · [Recursos](#pt-features) · [Arquitetura & Build](#pt-architecture) · [Instalação & Scripts](#pt-setup) · [Variáveis](#pt-env) · [Estrutura & Personalização](#pt-structure) · [Contato & Testes](#pt-tests) · [Deploy](#pt-deploy)
+
+</div>
+
+> [!IMPORTANT]
 > **Arquitetura e Privacidade:** Esta aplicação é **100% estática**, sem backend próprio, banco de dados ou cookies de rastreamento. Todo o conteúdo reside em módulos TypeScript tipados (`src/content/`), `scripts/prerender.ts` gera HTML semântico no momento do build e o formulário permanece desabilitado de forma segura (`unconfigured`) com canais diretos ativos até que um `VITE_CONTACT_ENDPOINT` (Formspree) válido seja configurado.
 
-### Prévia da Interface
+<a id="pt-preview"></a>
 
-**Início (Hero)**
+### 🖼️ Prévia da Interface
 
-![Tela inicial do portfólio VALLIER.FLUX](docs/screenshots/hero-preview.jpg)
+<table>
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <strong>Início (Hero)</strong><br/><br/>
+      <img src="docs/screenshots/hero-preview.jpg" alt="Tela inicial do portfólio VALLIER.FLUX" width="100%" />
+    </td>
+    <td width="50%" align="center" valign="top">
+      <strong>Habilidades (Stack e Aprendizado)</strong><br/><br/>
+      <img src="docs/screenshots/habilidades-preview.png" alt="Seção de habilidades do portfólio VALLIER.FLUX" width="100%" />
+    </td>
+  </tr>
+</table>
 
-**Habilidades (Stack e Aprendizado)**
+<a id="pt-features"></a>
 
-![Seção de habilidades do portfólio VALLIER.FLUX](docs/screenshots/habilidades-preview.png)
+### ✨ Recursos Principais & Stack Tecnológica
 
-### Recursos Principais
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🎨 Design System Próprio</h4>
+      <ul>
+        <li>Construído com <strong>CSS Modules</strong> e variáveis CSS (<code>src/styles/tokens.css</code>).</li>
+        <li>Tema escuro (<code>#08060D</code> / <code>#8B5CF6</code>) responsivo a partir de <code>320px</code>.</li>
+        <li>Suporte completo a <code>prefers-reduced-motion</code> e navegação por teclado.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h4>📦 Conteúdo Local Tipado</h4>
+      <ul>
+        <li>Apresentação, trajetória, habilidades, serviços e projetos verificados em <code>src/content/</code>.</li>
+        <li>Sem dependência de CMS externo ou chamadas de API em tempo de execução.</li>
+        <li>Scripts automatizados de validação de conteúdo e especificação.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>⚡ Pré-renderização no Build (SSR)</h4>
+      <ul>
+        <li><code>scripts/prerender.ts</code> injeta o HTML semântico inicial em <code>dist/index.html</code>.</li>
+        <li>Gera <code>canonical</code>, <code>og:url</code>, <code>robots.txt</code> e <code>sitemap.xml</code> quando <code>VITE_SITE_URL</code> está definido.</li>
+        <li>Mantém <code>noindex, nofollow</code> por padrão em ambientes de preview.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🛡️ Contato Seguro &amp; Qualidade</h4>
+      <ul>
+        <li>Validação pura dos campos, campo honeypot oculto via CSS, timeout de 15s, integração opcional com Formspree e canais diretos permanentes (e-mail, GitHub e LinkedIn).</li>
+        <li><strong>Suíte de QA:</strong> TypeScript strict, ESLint sem avisos, Prettier, Vitest + RTL, Playwright + <code>@axe-core/playwright</code> (WCAG 2.2 AA) e Lighthouse CI.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-- **Design System Próprio**: construído com CSS Modules e variáveis CSS (`src/styles/tokens.css`), tema escuro (`#08060D` / `#8B5CF6`), layout responsivo a partir de `320px` e suporte a `prefers-reduced-motion`.
-- **Conteúdo Local Tipado**: apresentação, trajetória, habilidades, serviços e projetos verificados organizados em `src/content/`, sem dependência de CMS externo ou chamadas de API em tempo de execução.
-- **Pré-renderização no Build (SSR)**: `scripts/prerender.ts` injeta o HTML semântico da página inicial em `dist/index.html` e gera `canonical`, `og:url`, `robots.txt` e `sitemap.xml` automaticamente quando `VITE_SITE_URL` está definido (mantendo `noindex, nofollow` em previews).
-- **Contato Seguro e Acessível**: validação pura dos campos, campo honeypot oculto via CSS, timeout de 15 segundos, integração opcional com Formspree e canais diretos permanentes (e-mail, GitHub e LinkedIn).
-- **Qualidade Automatizada**: TypeScript em modo estrito, ESLint sem tolerância a avisos, Prettier, Vitest + React Testing Library, Playwright + `@axe-core/playwright` (WCAG 2.2 AA) e Lighthouse CI.
+| Camada | Tecnologias |
+| --- | --- |
+| **Interface** | `React 19` · `TypeScript 5.9 (strict)` · `Vite 7` · `CSS Modules` · `Lucide React` |
+| **Contato (opcional)** | `Formspree` (`POST` JSON via HTTPS) |
+| **Testes e Qualidade** | `Vitest` · `React Testing Library` · `Playwright` · `@axe-core/playwright` · `Lighthouse CI` · `ESLint` · `Prettier` |
+| **CI/CD e Hospedagem** | `GitHub Actions` (qualidade + deploy no GitHub Pages) · `Netlify` (`netlify.toml`) |
 
-### Stack Tecnológica
+<a id="pt-architecture"></a>
 
-- **Interface**: React 19, TypeScript (strict), Vite 7, CSS Modules e Lucide React.
-- **Contato (opcional)**: Formspree (`POST` JSON via HTTPS).
-- **Testes e Qualidade**: Vitest, React Testing Library, Playwright, `@axe-core/playwright`, Lighthouse CI, ESLint e Prettier.
-- **CI/CD e Hospedagem**: GitHub Actions (qualidade + deploy automático no GitHub Pages) e configuração de referência para Netlify (`netlify.toml`).
+### 🏗️ Pipeline de Build e Pré-renderização SSR (5 Etapas)
 
-### Requisitos
-
-- **Node.js**: versão indicada em `.nvmrc` (`22.14.0`, faixa aceita `>=22.14.0 <23`).
-- **npm**: `10.9.2` (faixa aceita `>=10.9.2 <11`).
-
-Com `nvm` instalado:
-
-```sh
-nvm install
-nvm use
-node --version
-npm --version
+```mermaid
+flowchart LR
+    S1["1. Typecheck<br/>tsc --noEmit"] --> S2["2. Conteúdo<br/>check:content"]
+    S2 --> S3["3. Bundle Cliente<br/>vite build → dist/"]
+    S3 --> S4["4. Bundle SSR<br/>vite build --ssr → dist-ssr/"]
+    S4 --> S5["5. Pré-renderização<br/>tsx scripts/prerender.ts"]
+    S5 --> OUT["HTML Semântico Estático<br/>dist/index.html + SEO / Sitemap"]
+    OUT --> QA["Portões de Qualidade<br/>Vitest · Playwright · axe · Lighthouse"]
+    QA --> DEP["Deploy Estático<br/>GitHub Pages / Netlify"]
 ```
 
-### Instalação e Desenvolvimento
+<a id="pt-setup"></a>
 
-Na primeira instalação (para gerar o `package-lock.json` localmente):
+### 🚀 Requisitos, Instalação e Build
+
+> [!NOTE]
+> **Requisitos de Ambiente:** **Node.js** `22.14.0` (`.nvmrc`, faixa aceita `>=22.14.0 <23`) e **npm** `10.9.2` (`>=10.9.2 <11`).
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>💻 Desenvolvimento Local</h4>
 
 ```sh
+# Opcional: alinhar versão do Node via nvm
+nvm install && nvm use
+
+# Primeira instalação (gera package-lock.json)
+# Use `npm ci` após versionar o lockfile
 npm install
 cp .env.example .env.local
 npm run dev
 ```
 
-Depois de versionar o `package-lock.json`, prefira instalação reproduzível com `npm ci`. No Windows (PowerShell), use `Copy-Item .env.example .env.local`. Mantenha as variáveis vazias inicialmente e acesse `http://127.0.0.1:5173`.
-
-Não versione `.env.local`. Reinicie o servidor após alterar variáveis de ambiente.
-
-### Build e Preview
+*Roda em `http://127.0.0.1:5173`. No Windows (PowerShell), use `Copy-Item .env.example .env.local`. Nunca versione `.env.local` e reinicie o servidor ao alterar variáveis.*
+    </td>
+    <td width="50%" valign="top">
+      <h4>🏗️ Build de Produção e Preview</h4>
 
 ```sh
+# Executa typecheck, validação de conteúdo,
+# builds cliente/SSR e pré-renderização
 npm run build
+
+# Serve dist/ na porta estrita 4173
 npm run preview
 ```
 
-O pipeline de build executa, em sequência:
+*O preview local de produção roda em **`http://127.0.0.1:4173`**.*
+    </td>
+  </tr>
+</table>
 
-1. `npm run typecheck` — verificação de tipos TypeScript (`tsc --noEmit`);
-2. `npm run check:content` — validação estrutural da especificação e documentação obrigatória;
-3. `vite build` — geração do bundle cliente em `dist/`;
-4. `vite build --ssr src/entry-server.ts --outDir dist-ssr` — geração do bundle SSR;
-5. `tsx scripts/prerender.ts` — pré-renderização do HTML inicial e metadados SEO em `dist/index.html`.
+<details>
+<summary><strong>📜 Ver Todos os 15 Comandos npm Disponíveis (Clique para expandir)</strong></summary>
 
-O preview local roda em **http://127.0.0.1:4173** com porta estrita.
-
-### Comandos Disponíveis
+<br/>
 
 | Comando | Finalidade |
 | --- | --- |
@@ -318,7 +488,11 @@ O preview local roda em **http://127.0.0.1:4173** com porta estrita.
 | `npm run format:check` | Conferir formatação Prettier sem alterar arquivos. |
 | `npm run format` | Reformatar arquivos do projeto com Prettier. |
 
-### Variáveis de Ambiente
+</details>
+
+<a id="pt-env"></a>
+
+### 🔐 Variáveis de Ambiente
 
 Copie `.env.example` para `.env.local` no desenvolvimento local. Na hospedagem ou CI, configure as mesmas variáveis no ambiente de build.
 
@@ -328,12 +502,18 @@ Copie `.env.example` para `.env.local` no desenvolvimento local. Na hospedagem o
 | `VITE_SITE_URL` | URL HTTPS pública definitiva (ex.: `https://seudominio.com`). Quando vazia, o build permanece `noindex, nofollow` e não emite `canonical`, `og:url` ou `sitemap.xml`. |
 | `VITE_CONTACT_ENDPOINT` | Endpoint público opcional no formato `https://formspree.io/f/{id}`. Quando vazio, o formulário permanece visível e editável, com aviso persistente e botão de envio desabilitado. |
 
+> [!WARNING]
 > **Atenção:** Toda variável com prefixo `VITE_` é incorporada ao bundle público do navegador. Nunca coloque tokens do GitHub, senhas, chaves privadas ou credenciais SMTP em variáveis `VITE_`.
 
-### Estrutura do Projeto
+<a id="pt-structure"></a>
+
+### 📁 Estrutura do Projeto e Personalização
+
+<details>
+<summary><strong>📂 Ver Árvore de Diretórios e Mapa de Personalização (Clique para expandir)</strong></summary>
 
 ```text
-.
+VALLIERFLUX/
 ├── .github/workflows/      # Pipelines de CI (qualidade) e deploy (GitHub Pages)
 ├── docs/                   # Especificação, design system, privacidade e screenshots
 ├── public/                 # Assets públicos estáticos (favicon.svg)
@@ -350,8 +530,6 @@ Copie `.env.example` para `.env.local` no desenvolvimento local. Na hospedagem o
 └── tests/                  # Testes unitários, de componentes e E2E (Playwright + axe)
 ```
 
-### Personalização de Conteúdo
-
 | Conteúdo | Arquivo |
 | --- | --- |
 | Marca, slogan, textos principais, navegação, links e SEO | `src/content/site.ts` |
@@ -363,30 +541,33 @@ Copie `.env.example` para `.env.local` no desenvolvimento local. Na hospedagem o
 | Estilos globais, foco e acessibilidade | `src/styles/global.css` |
 | Favicon VF | `public/favicon.svg` |
 
-**Repositórios em Destaque:**
+**Referências Internas:** `docs/project-spec.json` (especificação e contratos) · `docs/design-system.md` (diretrizes visuais) · `docs/content-sources.md` (proveniência de conteúdo) · `docs/privacy.md` (aviso de privacidade do contato).
 
-- [DataForge](https://github.com/YohanVallier/DataForge)
-- [AutomatedDataPipeline](https://github.com/YohanVallier/AutomatedDataPipeline)
-- [BeaconOps](https://github.com/YohanVallier/BeaconOps)
-- [VALLIERFLUX](https://github.com/YohanVallier/VALLIERFLUX)
+</details>
 
-### Formulário de Contato e Formspree
+**Repositórios em Destaque:** [DataForge](https://github.com/YohanVallier/DataForge) · [AutomatedDataPipeline](https://github.com/YohanVallier/AutomatedDataPipeline) · [BeaconOps](https://github.com/YohanVallier/BeaconOps) · [VALLIERFLUX](https://github.com/YohanVallier/VALLIERFLUX)
 
-Sem `VITE_CONTACT_ENDPOINT` configurado, o formulário exibe um aviso persistente, mantém os campos editáveis e o botão de envio desabilitado, sem realizar chamadas de rede, enquanto e-mail, GitHub e LinkedIn permanecem disponíveis como canais diretos.
+<a id="pt-tests"></a>
 
-Para habilitar envios reais:
+### 🧪 Formulário de Contato e Suíte de Validação
 
-1. Crie o formulário na conta Formspree desejada e valide o destinatário.
-2. Ative proteções antispam e limites no painel do provedor.
-3. Revise a política de privacidade em `docs/privacy.md`.
-4. Defina `VITE_CONTACT_ENDPOINT=https://formspree.io/f/{id}` no ambiente de build e gere um novo build.
-5. Realize um envio real controlado para confirmar a entrega.
-
-### Validação e Testes
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>✉️ Habilitando o Formspree</h4>
+      <p>Sem <code>VITE_CONTACT_ENDPOINT</code> configurado, o formulário mantém os campos editáveis com aviso persistente, desabilita o envio e não realiza chamadas de rede, mantendo os canais diretos ativos.</p>
+      <ol>
+        <li>Crie o formulário na conta Formspree e valide o destinatário.</li>
+        <li>Ative proteções antispam e limites no painel do provedor.</li>
+        <li>Revise a política de privacidade em <code>docs/privacy.md</code>.</li>
+        <li>Defina <code>VITE_CONTACT_ENDPOINT=https://formspree.io/f/{id}</code> e gere um novo build.</li>
+        <li>Realize um envio real controlado para confirmar a entrega.</li>
+      </ol>
+    </td>
+    <td width="50%" valign="top">
+      <h4>✅ Pipeline Completo de Qualidade</h4>
 
 ```sh
-npm install
-cp .env.example .env.local
 npm run check:spec
 npm run check:content
 npm run lint
@@ -399,15 +580,31 @@ npm run test:e2e
 npm run test:a11y
 npm run audit:lighthouse
 ```
+    </td>
+  </tr>
+</table>
 
-### Publicação (Deploy)
+<a id="pt-deploy"></a>
 
-- **GitHub Pages**: o workflow `.github/workflows/deploy.yml` publica automaticamente a branch `main` no GitHub Pages com `VITE_BASE_PATH='/VALLIERFLUX/'`.
-- **Netlify**: o arquivo `netlify.toml` define o comando `npm run build`, diretório de saída `dist/`, cabeçalhos de segurança (`Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`) e `X-Robots-Tag: noindex, nofollow` em deploy previews.
+### ☁️ Publicação (Deploy)
 
-### Referências Internas
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🐙 GitHub Pages</h4>
+      <p>O workflow <code>.github/workflows/deploy.yml</code> publica automaticamente a branch <code>main</code> no GitHub Pages com <code>VITE_BASE_PATH='/VALLIERFLUX/'</code>.</p>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🌐 Netlify</h4>
+      <p>O arquivo <code>netlify.toml</code> define <code>npm run build</code>, publicação de <code>dist/</code>, cabeçalhos de segurança (<code>CSP</code>, <code>X-Frame-Options</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code>, <code>Permissions-Policy</code>) e <code>X-Robots-Tag: noindex, nofollow</code> em previews.</p>
+    </td>
+  </tr>
+</table>
 
-- `docs/project-spec.json` — especificação arquitetural e contratos.
-- `docs/design-system.md` — sistema visual e diretrizes de interface.
-- `docs/content-sources.md` — proveniência e atualização de conteúdo.
-- `docs/privacy.md` — aviso de privacidade do formulário de contato.
+<div align="center">
+
+<br/>
+
+[⬆️ Voltar ao topo](#top) · [🇺🇸 Switch to English](#english)
+
+</div>
